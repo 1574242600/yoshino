@@ -4,7 +4,7 @@ import TimeToString from './tools/timeToString.class';
 import i18n, { init as i18nInit } from './tools/i18n'
 
 const loadHljs = async () => {
-    if (!window.hljs) {
+    if (window.hljs === undefined) {
         let hljs = document.createElement('script');
 
         let css = document.createElement('style');
@@ -34,11 +34,17 @@ const loadHljs = async () => {
 }
 
 const loadUtils = async () => {
-    if (!window.initUtils) {
+    if (window.initUtils === undefined) {
         let utils = document.createElement('script');
+        utils.onload = () => {
+            window.initUtils();
+        }
         utils.src = './js/utils.js';
         document.body.appendChild(utils);
+    } else {
+        window.initUtils();
     }
 }
+
 
 export { Cache, Site, i18n, i18nInit, loadHljs, TimeToString, loadUtils };

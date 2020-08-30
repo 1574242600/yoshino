@@ -100,14 +100,18 @@ let utils = {
     }
 };
 
-( () => {
-let anime = document.createElement('script');
-anime.onload = () => {
-    utils.registerSidebarTOC();
-}
+window.initUtils = async () => {
+    if (window.anime === undefined) {
+        let anime = document.createElement('script');
+            anime.onload = () => {
+            utils.registerSidebarTOC();
+        }
 
-anime.src = '//cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js'
-document.body.appendChild(anime);
-})()
+        anime.src = '//cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js'
+        document.body.appendChild(anime);
+    } else {
+        utils.registerSidebarTOC();
+    }
+}
 
 
