@@ -13,13 +13,13 @@ async function load(postId, id) {
     };
 
     if (window.DISQUS === undefined) {
-        window.isLoadDisqus = true;
+        window.accessDisqus = true;
         (async () => {
             var d = document, s = d.createElement('script');
             s.src = `//${id}.disqus.com/embed.js`;
             s.async = true;
             s.onerror = () => {
-                window.isLoadDisqus = false;
+                window.accessDisqus = false;
                 window.DISQUS = 0;
                 error()
             }
@@ -28,7 +28,7 @@ async function load(postId, id) {
         })()
     } else {
         
-        if (!window.isLoadDisqus) {
+        if (!window.accessDisqus) {
             error();
             return false;
         }
