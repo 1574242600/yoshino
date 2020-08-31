@@ -30,6 +30,7 @@ async function load(postId, id) {
         
         if (!window.isLoadDisqus) {
             error();
+            return false;
         }
 
         window.DISQUS.reset({
