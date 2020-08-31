@@ -5,6 +5,7 @@ import Loading from './widget/loading/loadingPage';
 import InfoCard from './partial/infoCard';
 import PostCard from './partial/postCard';
 import RowPageCard from './widget/rowPageCard';
+import Comment from './partial/comment';
 import { loadHljs, Site } from '../global';
 const { Row } = Yoshino.Grid;
 
@@ -65,6 +66,7 @@ export default class Post extends React.Component {
                 { !this.state.loading &&
                     <RowPageCard InfoCard={<InfoCard type='post' nav={this.state.data.nav} />}>
                         <PostCard data={this.state.data} />
+                        <Comment id={this.state.id} />
                     </RowPageCard>
                 }
                 </ColCenter>

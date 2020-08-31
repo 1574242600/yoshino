@@ -54,6 +54,7 @@
 
 .post-body h2, .post-body h3, .post-body h4, .post-body h5, .post-body h6 {
     border-left: 4px solid #51b26d;
+    margin-bottom: 10px;
     margin-left: -4.59%;
     padding-left: 32px;
     border-bottom: none
@@ -146,8 +147,6 @@ td.hljs-ln-numbers {
     transition-duration: .2s;
     transition-timing-function: ease-in-out
 }
-
-
 
 .post-toc .nav-item {
     line-height: 1.8;

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import * as Yoshino from 'yoshino';
 import Title from './postCard/title';
 import Content from './postCard/content';
+import CardShadow from '../widget/cardShadow';
 import { MoreCardInfo } from './postCard/Info'
 import { i18n as _ } from '../../global';
 const { Row } = Yoshino.Grid;
@@ -25,12 +26,12 @@ class More extends React.Component {
 export default class PostCard extends React.Component {
     render() {
         return (
-            <Row style={{ backgroundColor: '#f5f5f5' , margin: '24px'}} className={'yoshino-card-shadow'} >
+            <CardShadow margin='24px'>
                 <Title value={this.props.data.info.title} />
                 <MoreCardInfo info={this.props.data.info} />
                 <Content value={this.props.data.content} />
                 <More id={this.props.id} />
-            </Row>
+            </CardShadow>
         )
     }
 } 

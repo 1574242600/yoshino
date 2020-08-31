@@ -1,9 +1,7 @@
 import React from 'react';
-import { Link } from "react-router-dom";
-import * as Yoshino from 'yoshino';
 import { CardInfo } from './postCard/Info'
-import Content from '../partial/postCard/content';
-const { Row } = Yoshino.Grid;
+import Content from './postCard/content';
+import CardShadow from '../widget/cardShadow';
 
 class Title extends React.Component {
     render() {
@@ -29,11 +27,11 @@ export default class PostCard extends React.Component {
         let isLg = window.innerWidth > 992;
 
         return (
-            <Row style={{ backgroundColor: '#f5f5f5', margin: isLg ? '24px' : '0' }} className={'yoshino-card-shadow'} >
+            <CardShadow margin={ isLg ? '24px' : '0' }>
                 <Title value={data.info.title} />
                 <CardInfo info={this.props.data.info} />
                 <Content value={data.content} />
-            </Row>
+            </CardShadow>
         )
     }
 } 
