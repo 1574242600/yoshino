@@ -106,7 +106,8 @@ window.initUtils = async () => {
             anime.onload = () => {
             utils.registerSidebarTOC();
         }
-
+        
+        anime.async = true;
         anime.src = '//cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js'
         document.body.appendChild(anime);
     } else {

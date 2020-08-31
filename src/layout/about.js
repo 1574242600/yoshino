@@ -6,44 +6,24 @@ import InfoCard from './partial/infoCard';
 import PostCard from './partial/postCard';
 import RowPageCard from './widget/rowPageCard';
 import Comment from './partial/comment';
-import { loadHljs, Site } from '../global';
+import { Site } from '../global';
 const { Row } = Yoshino.Grid;
 
-export default class Post extends React.Component {
+export default class About extends React.Component {
     constructor (props) {
         super(props);
         this.state = {
-            id: null,
+            id: 'about',
             loading: true,
             data: {},
         }
     }
 
-    static getDerivedStateFromProps(props, state) {
-        if (props.data.id !== state.id) {
-            return {
-                loading: true
-            }
-        }
-
-        return null;
-    }
-
-    componentDidUpdate() {
-        loadHljs();
-    }
-
-    async getPostData(id) {
-        return await Site.getPost(id)
-    }
-
     async init() {
         let state = this.state;
-        let id = this.props.data.id;
 
         if (this.state.loading) {
-            state.data = await this.getPostData(id);
-            state.id = id;
+            state.data = await Site.getAbout();
         }
 
         Site.setTitle(this.state.data.info.title);
@@ -65,7 +45,7 @@ export default class Post extends React.Component {
                 </style>
                 { !this.state.loading &&
                     <RowPageCard InfoCard={<InfoCard type='post' nav={this.state.data.nav} />}>
-                        <PostCard data={this.state.data} isPage={false} />
+                        <PostCard data={this.state.data} isPage={true} />
                         <Comment postId={this.state.id} />
                     </RowPageCard>
                 }

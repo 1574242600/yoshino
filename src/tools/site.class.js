@@ -43,6 +43,10 @@ export default class Site {
         return await _fetch(`./post/${page}/${id}.json`);
     }
 
+    static async getAbout() {
+        return await _fetch(`./about.json`);
+    }
+
 };
 
 

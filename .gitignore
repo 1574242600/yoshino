@@ -11,7 +11,8 @@
 # production
 /build
 
+
 /public/post
-/public/config.json
+/public/*.json
 /public/CNAME
 

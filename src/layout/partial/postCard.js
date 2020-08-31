@@ -25,11 +25,15 @@ export default class PostCard extends React.Component {
     render() {
         let data = this.props.data;
         let isLg = window.innerWidth > 992;
-
         return (
             <CardShadow margin={ isLg ? '24px' : '0' }>
                 <Title value={data.info.title} />
-                <CardInfo info={this.props.data.info} />
+                <div>
+                    {
+                        //不加div 会报错 
+                    }
+                    {!this.props.isPage && <CardInfo info={this.props.data.info} />}
+                </div>
                 <Content value={data.content} />
             </CardShadow>
         )

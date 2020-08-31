@@ -1,6 +1,6 @@
 import React from 'react';
 import * as Yoshino from 'yoshino';
-import Sidebar  from './partial/sidebar';
+import Sidebar from './partial/sidebar';
 import BackTop from './widget/backTop';
 import * as Index from './index';
 const { Col, Row } = Yoshino.Grid;
@@ -11,7 +11,8 @@ export default class Layout extends React.Component {
         Pages: { isRender: false, page: 0 },
         Post: { isRender: false, id: 0 },
         Archives: { isRender: false },
-        Link: { isRender: false }
+        Link: { isRender: false },
+        About: { isRender: false }
     }
 
     constructor (props) {
@@ -67,6 +68,15 @@ export default class Layout extends React.Component {
         return false;
     }
 
+    initRenderAbout() {
+        if (this.state.path === '?/about') {
+            this.sub.About.isRender = true;
+            return true;
+        }
+
+        return false;
+    }
+
     static getDerivedStateFromProps(props, state) {
         if (props.location.search !== state.path) {
             return {
@@ -78,17 +88,21 @@ export default class Layout extends React.Component {
     }
 
     match() {
-        let mods = Object.keys(this.sub);
-        for (let mod of mods) {
-            if ( this['initRender'+ mod]()) {
-               let Match = Index[mod]; 
-               if (this.sub[mod].isRender) {
-                    return <Match data={this.sub[mod]} history={ this.props.history } />
-                } 
+        try {
+            let mods = Object.keys(this.sub);
+            for (let mod of mods) {
+                if (this['initRender' + mod]()) {
+                    let Match = Index[mod];
+                    if (this.sub[mod].isRender) {
+                        return <Match data={ this.sub[mod] } history={ this.props.history } />
+                    }
+                }
             }
-        }
 
-        return (<Index.Notfound />)
+            return (<Index.Notfound />)
+        } catch {
+            return (<Index.Notfound />)
+        }
     }
 
     render() {
