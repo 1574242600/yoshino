@@ -1,6 +1,7 @@
 import Cache from './tools/cache.class';
 import Site from './tools/site.class';
 import TimeToString from './tools/timeToString.class';
+import toc from './tools/toc' ;
 import i18n, { init as i18nInit } from './tools/i18n'
 
 const loadHljs = async () => {
@@ -47,4 +48,4 @@ const loadUtils = async () => {
 }
 
 
-export { Cache, Site, i18n, i18nInit, loadHljs, TimeToString, loadUtils };
+export { Cache, Site, i18n, i18nInit, loadHljs, TimeToString, loadUtils, toc };

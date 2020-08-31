@@ -6,6 +6,7 @@
 thx  
 
 - [Yoshino-UI](https://github.com/Yoshino-UI/Yoshino)
+- [hexo](https://github.com/hexojs/hexo/)
 - [Anime](https://github.com/juliangarnier/anime)
 - [hexo-theme-next](https://github.com/next-theme/hexo-theme-next)
 - [hexo-theme-sagiri](https://github.com/DIYgod/hexo-theme-sagiri)
