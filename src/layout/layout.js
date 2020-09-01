@@ -2,6 +2,7 @@ import React from 'react';
 import * as Yoshino from 'yoshino';
 import Sidebar from './partial/sidebar';
 import BackTop from './widget/backTop';
+import Footer from './partial/footer';
 import * as Index from './index';
 const { Col, Row } = Yoshino.Grid;
 
@@ -116,6 +117,7 @@ export default class Layout extends React.Component {
                 >
 
                     { this.match() }
+                    <Footer />
                 </Col>
 
                 <BackTop />

@@ -183,3 +183,21 @@ td.hljs-ln-numbers {
 .post-toc .nav .active-current>a:hover {
     color: #51b26d
 }
+
+footer {
+    color: #b9f6ca;
+    padding: 15px 0 10px;
+    line-height: 1.5;
+    text-align: center;
+    background: #51b26d
+}
+
+
+footer span{
+    margin: 0 5px 0 5px;
+}
+
+footer a:hover {
+    
+    color: #69f0ae
+}

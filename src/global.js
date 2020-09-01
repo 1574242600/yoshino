@@ -1,7 +1,7 @@
 import Cache from './tools/cache.class';
 import Site from './tools/site.class';
 import TimeToString from './tools/timeToString.class';
-import toc from './tools/toc' ;
+import toc from './tools/toc';
 import i18n, { init as i18nInit } from './tools/i18n'
 
 const loadHljs = async () => {
@@ -34,18 +34,14 @@ const loadHljs = async () => {
     }
 }
 
-const loadUtils = async () => {
-    if (window.initUtils === undefined) {
-        let utils = document.createElement('script');
-        utils.onload = () => {
-            window.initUtils();
-        }
-        utils.src = './js/utils.js';
-        document.body.appendChild(utils);
-    } else {
-        window.initUtils();
-    }
+const loadJs = async (name, async = true, callback, errorCallback) => {
+    let js = document.createElement('script');
+    js.async = async;
+    js.onload = callback;
+    js.onerror = errorCallback;
+    js.src = `./js/${name}.js`;
+    document.body.appendChild(js);
 }
 
 
-export { Cache, Site, i18n, i18nInit, loadHljs, TimeToString, loadUtils, toc };
+export { Cache, Site, i18n, i18nInit, loadHljs, TimeToString, loadJs, toc };

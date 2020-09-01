@@ -1,24 +1,4 @@
-let utils = {
-    /*
-    registerScrollPercent: function () {
-        var THRESHOLD = 50;
-        var readingProgressBar = document.querySelector('.reading-progress-bar');
-        window.addEventListener('scroll', () => {
-            if (backToTop || readingProgressBar) {
-                var docHeight = document.querySelector('.container').offsetHeight;
-                var winHeight = window.innerHeight;
-                var contentVisibilityHeight = docHeight > winHeight ? docHeight - winHeight : document.body.scrollHeight - winHeight;
-                var scrollPercent = Math.min(100 * window.scrollY / contentVisibilityHeight, 100);
-                if (backToTop) {
-                    backToTop.classList.toggle('back-to-top-on', window.scrollY > THRESHOLD);
-                    backToTop.querySelector('span').innerText = Math.round(scrollPercent) + '%';
-                }
-                if (readingProgressBar) {
-                    readingProgressBar.style.width = scrollPercent.toFixed(2) + '%';
-                }
-            }
-        });
-    },*/
+let postNav = {
     registerSidebarTOC: function () {
         const navItems = document.querySelectorAll('.post-toc li');
         const sections = [
@@ -100,18 +80,18 @@ let utils = {
     }
 };
 
-window.initUtils = async () => {
+window.initPostNav = async () => {
     if (window.anime === undefined) {
         let anime = document.createElement('script');
             anime.onload = () => {
-            utils.registerSidebarTOC();
+            postNav.registerSidebarTOC();
         }
         
         anime.async = true;
         anime.src = '//cdnjs.cloudflare.com/ajax/libs/animejs/3.2.0/anime.min.js'
         document.body.appendChild(anime);
     } else {
-        utils.registerSidebarTOC();
+        postNav.registerSidebarTOC();
     }
 }
 
