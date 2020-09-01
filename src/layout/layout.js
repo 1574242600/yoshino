@@ -24,7 +24,7 @@ export default class Layout extends React.Component {
     }
 
     initRenderPages() {
-        if (this.state.path === '?/home') {
+        if (this.state.path === '?/home' || this.state.path === '') {
             this.sub.Pages.isRender = true;
             return true;
         }
