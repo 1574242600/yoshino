@@ -64,6 +64,7 @@ export default class Footer extends React.Component {
         let siteName = Site.config.title;
         let author = Site.config.author;
         let year = (new Date()).getFullYear();
+        
 
         return (
             <footer>

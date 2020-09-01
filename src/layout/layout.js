@@ -116,10 +116,9 @@ export default class Layout extends React.Component {
                     xxl={ { offset: 2, span: 22 } }
                 >
 
-                    { this.match() }
+                    <div style={{minHeight: 'calc(100vh - 79px)'}}>{this.match()}</div>
                     <Footer />
                 </Col>
-
                 <BackTop />
             </Row>
         );
