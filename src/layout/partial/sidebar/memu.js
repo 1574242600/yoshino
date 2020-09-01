@@ -33,7 +33,9 @@ export default class Memu extends React.Component {
     }
 
     getActiveKey(path) {
+        if (path === '') return this.homeMatch[1];
         if (this.homeMatch[0].test(path)) return this.homeMatch[1];
+        
 
         return this.mods[path] ? this.mods[path] : '-1';
     }
