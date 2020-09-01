@@ -8,7 +8,6 @@ import listener from './listener';
 
 export default class Routers extends React.Component {
     render() {
-        this.init() 
         if (this.props.Loading) return false;
         listener()
         
