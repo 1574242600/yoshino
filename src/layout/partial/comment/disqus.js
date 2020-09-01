@@ -2,8 +2,12 @@ import React from 'react';
 import LoadingComment from '../../widget/loading/loadingComment';
 
 async function error() {
-    let disqusDom = document.getElementById('disqus_thread');
-    disqusDom.innerHTML = 'Disqus加载失败, 请检查您的地区是否支持Disqus';//这个没必要i18n吧
+    try {
+        let disqusDom = document.getElementById('disqus_thread');
+        disqusDom.innerHTML = 'Disqus加载失败, 请检查您的地区是否支持Disqus';//这个没必要i18n吧
+    } catch (e) {
+        console.log(e);
+    }
 }
 
 async function load(postId, id) {
