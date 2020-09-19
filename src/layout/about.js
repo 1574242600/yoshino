@@ -26,7 +26,6 @@ export default class About extends React.Component {
             state.data = await Site.getAbout();
         }
 
-        Site.setTitle(this.state.data.info.title);
         state.loading = false;
         this.setState(state);
     }
@@ -40,9 +39,7 @@ export default class About extends React.Component {
                 { this.state.loading &&
                     <Loading Loading={ this.state.loading } />
                 }
-                <style>
-                    
-                </style>
+
                 { !this.state.loading &&
                     <RowPageCard InfoCard={<InfoCard type='post' nav={this.state.data.nav} />}>
                         <PostCard data={this.state.data} isPage={true} />

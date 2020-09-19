@@ -4,6 +4,7 @@ import Sidebar from './partial/sidebar';
 import BackTop from './widget/backTop';
 import Footer from './partial/footer';
 import * as Index from './index';
+import { Site, i18n as _ } from '../global';
 const { Col, Row } = Yoshino.Grid;
 
 
@@ -33,6 +34,7 @@ export default class Layout extends React.Component {
         if (match !== null) {
             this.sub.Pages.isRender = true;
             this.sub.Pages.page = Number(match[1]);
+            Site.setTitle(this.sub.Pages.page === 0 ? _('Home') : `第${this.sub.Pages.page + 1}页`);//todo
             return true;
         };
 
@@ -54,6 +56,7 @@ export default class Layout extends React.Component {
     initRenderArchives() {
         if (this.state.path === '?/archives') {
             this.sub.Archives.isRender = true;
+            Site.setTitle(_('Archives'));
             return true;
         }
 
@@ -63,6 +66,7 @@ export default class Layout extends React.Component {
     initRenderLink() {
         if (this.state.path === '?/link') {
             this.sub.Link.isRender = true;
+            Site.setTitle(_('Link'));
             return true;
         }
 
@@ -72,6 +76,7 @@ export default class Layout extends React.Component {
     initRenderAbout() {
         if (this.state.path === '?/about') {
             this.sub.About.isRender = true;
+            Site.setTitle(_('About'));
             return true;
         }
 
@@ -116,7 +121,7 @@ export default class Layout extends React.Component {
                     xxl={ { offset: 2, span: 22 } }
                 >
 
-                    <div style={{minHeight: 'calc(100vh - 79px)'}}>{this.match()}</div>
+                    <div style={ { minHeight: 'calc(100vh - 79px)' } }>{ this.match() }</div>
                     <Footer />
                 </Col>
                 <BackTop />
