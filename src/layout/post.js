@@ -45,7 +45,7 @@ export default class Post extends React.Component {
             state.data = await this.getPostData(id);
             state.id = id;
         }
-
+        
         Site.setTitle(this.state.data.info.title);
         state.loading = false;
         this.setState(state);

@@ -19,19 +19,23 @@ class Main extends React.Component {
     }
 
     load() {
-        Site.getConfig().then(info => {
+        Site.getConfig().then(config => {
             if (Cache.get('i18n') === null) {
-                i18nInit(info.language).then( _ => {
+                i18nInit(config.language).then( _ => {
                     Site.setTitle();
+                    Site.setMeta('author', config.author)
+                    Site.setMeta('description', config.description)
+                    Site.setMeta('keywords', config.keywords)
+
                     this.setState({
-                        config: info,
+                        config: config,
                         loading: false
                     })
                 });
             } else {
                 Site.setTitle();
                 this.setState({
-                    config: info,
+                    config: config,
                     loading: false
                 })
             }
