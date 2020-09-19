@@ -7,80 +7,48 @@ import * as Index from './index';
 import { Site, i18n as _ } from '../global';
 const { Col, Row } = Yoshino.Grid;
 
+let sub = {
+    Pages: { isRender: false, page: 0, 
+        is: (path) => (path === '?/home' || path === '' || path.match(/\?\/page\/([0-9]+)/) !== null),
+        init: (Lay) => { 
+            let match = Lay.state.path.match(/\?\/page\/([0-9]+)/);
+            if (match !== null) {
+                sub.Pages.page = Number(match[1]);
+            } else {
+                sub.Pages.page = 0;
+            };
+
+            Site.setTitle(sub.Pages.page === 0 ? _('Home') : `第${sub.Pages.page + 1}页`);
+        }
+    },
+    Post: { isRender: false, id: 0, 
+        is: (path) => (path.match(/\?\/post\/([0-9]+)/) !== null),
+        init: (Lay) => { 
+            let match = Lay.state.path.match(/\?\/post\/([0-9]+)/);
+            sub.Post.id = Number(match[1]);
+        }
+    },
+    Archives: { isRender: false, 
+        is: (path) => (path === '?/archives'),
+        init: (Lay) => Site.setTitle(_('Archives'))
+    },
+    Link: { isRender: false, 
+        is: (path) => (path === '?/link'),
+        init: (Lay) => Site.setTitle(_('Link'))
+    },
+    About: { isRender: false, 
+        is: (path) => (path === '?/about'),
+        init: (Lay) => Site.setTitle(_('About'))
+    }
+}
 
 export default class Layout extends React.Component {
-    sub = {
-        Pages: { isRender: false, page: 0 },
-        Post: { isRender: false, id: 0 },
-        Archives: { isRender: false },
-        Link: { isRender: false },
-        About: { isRender: false }
-    }
 
     constructor (props) {
         super(props)
         this.state = {
             path: this.props.location.search,
         }
-    }
-
-    initRenderPages() {
-        if (this.state.path === '?/home' || this.state.path === '') {
-            this.sub.Pages.isRender = true;
-            return true;
-        }
-
-        let match = this.state.path.match(/\?\/page\/([0-9]+)/);
-        if (match !== null) {
-            this.sub.Pages.isRender = true;
-            this.sub.Pages.page = Number(match[1]);
-            Site.setTitle(this.sub.Pages.page === 0 ? _('Home') : `第${this.sub.Pages.page + 1}页`);//todo
-            return true;
-        };
-
-        return false;
-    }
-
-    initRenderPost() {
-        let match = this.state.path.match(/\?\/post\/([0-9]+)/);
-
-        if (match !== null) {
-            this.sub.Post.isRender = true;
-            this.sub.Post.id = Number(match[1]);
-            return true;
-        };
-
-        return false;
-    }
-
-    initRenderArchives() {
-        if (this.state.path === '?/archives') {
-            this.sub.Archives.isRender = true;
-            Site.setTitle(_('Archives'));
-            return true;
-        }
-
-        return false;
-    }
-
-    initRenderLink() {
-        if (this.state.path === '?/link') {
-            this.sub.Link.isRender = true;
-            Site.setTitle(_('Link'));
-            return true;
-        }
-
-        return false;
-    }
-
-    initRenderAbout() {
-        if (this.state.path === '?/about') {
-            this.sub.About.isRender = true;
-            Site.setTitle(_('About'));
-            return true;
-        }
-
-        return false;
     }
 
     static getDerivedStateFromProps(props, state) {
@@ -95,13 +63,12 @@ export default class Layout extends React.Component {
 
     match() {
         try {
-            let mods = Object.keys(this.sub);
+            let mods = Object.keys(sub);
             for (let mod of mods) {
-                if (this['initRender' + mod]()) {
+                if (sub[mod].is(this.state.path)) {
+                    sub[mod].init(this);
                     let Match = Index[mod];
-                    if (this.sub[mod].isRender) {
-                        return <Match data={ this.sub[mod] } history={ this.props.history } />
-                    }
+                    return <Match data={ sub[mod] } history={ this.props.history } />
                 }
             }
 

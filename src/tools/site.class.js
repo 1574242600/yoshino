@@ -3,13 +3,20 @@ import _fetch from './fetch';
 
 export default class Site {
     static config;
-    static async getconfig() {
+    static async getConfig() {
         this.config = await _fetch('./config.json', 'config');
         return this.config;
     }
 
     static setTitle(title = undefined) {
         document.title = title ? `${title} | ${this.config.title}` : this.config.title;
+    }
+
+    static setMeta(name, content = undefined) {
+        let element = document.querySelector(`meta[name='${ name }']`);
+        if (element === null) return false;
+        element.content = content;
+        return true
     }
 
     static setSiteCacheTime(time = 86400) { // 一天

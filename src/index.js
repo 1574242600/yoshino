@@ -19,7 +19,7 @@ class Main extends React.Component {
     }
 
     load() {
-        Site.getconfig().then(info => {
+        Site.getConfig().then(info => {
             if (Cache.get('i18n') === null) {
                 i18nInit(info.language).then( _ => {
                     Site.setTitle();
