@@ -1,6 +1,7 @@
 import * as React from 'react';
 import AuthorCard from './sidebar/authorCard';
 import Memu from './sidebar/memu';
+import MobileSidebar from './sidebar/mobile';
 import { Grid, Divider } from 'yoshino';
 const { Col } = Grid;
 
@@ -15,6 +16,8 @@ export default class Sidebar extends React.Component {
     }
 
     render() {
+        if (window.innerWidth < 992) return <MobileSidebar path={this.props.location.search} history={this.props.history} />
+
         return (
             <Col 
               xs={0}

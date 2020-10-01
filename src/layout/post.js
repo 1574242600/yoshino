@@ -37,7 +37,7 @@ export default class Post extends React.Component {
         return await Site.getPost(id)
     }
 
-    async init() {
+    async componentDidMount() {
         let state = this.state;
         let id = this.props.data.id;
 
@@ -52,8 +52,6 @@ export default class Post extends React.Component {
     }
 
     render() {
-        if (this.state.loading) this.init();
-
         return (
             <Row>
                 <ColCenter width='100%'>

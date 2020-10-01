@@ -9,7 +9,7 @@ export default class Archives extends React.Component {
         }
     }
 
-    async init() {
+    async componentDidMount() {
         let state = this.state;
         state.loading = false;
         this.setState(state);

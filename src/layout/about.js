@@ -19,7 +19,7 @@ export default class About extends React.Component {
         }
     }
 
-    async init() {
+    async componentDidMount() {
         let state = this.state;
 
         if (this.state.loading) {
@@ -31,7 +31,6 @@ export default class About extends React.Component {
     }
 
     render() {
-        if (this.state.loading) this.init();
 
         return (
             <Row>

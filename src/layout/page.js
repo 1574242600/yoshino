@@ -51,7 +51,7 @@ export default class Pages extends React.Component {
         loadHljs();
     }
 
-    async init() {
+    async componentDidMount() {
         let state = this.state;
         let page = this.props.data.page;
 
@@ -66,8 +66,6 @@ export default class Pages extends React.Component {
     }
 
     render() {
-        if (this.state.loading) this.init();
-
         return (
             <Row>
                 <ColCenter width='90%'>
