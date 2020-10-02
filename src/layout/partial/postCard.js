@@ -7,9 +7,8 @@ import Title from '../widget/title';
 export default class PostCard extends React.Component {
     render() {
         let data = this.props.data;
-        let isLg = window.innerWidth > 992;
         return (
-            <CardShadow margin={ isLg ? '24px' : '0' }>
+            <CardShadow margin={ window.isLg ? '24px' : '0' }>
                 <Title 
                     style={{ 
                         marginTop: '8px',

@@ -4,6 +4,8 @@ import TimeToString from './tools/timeToString.class';
 import toc from './tools/toc';
 import i18n, { init as i18nInit } from './tools/i18n'
 
+window.isLg = window.innerWidth > 992;
+
 const loadHljs = async () => {
     if (window.hljs === undefined) {
         let hljs = document.createElement('script');
