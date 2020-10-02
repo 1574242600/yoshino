@@ -43,7 +43,7 @@ class MoreCardInfo extends React.Component {
                 } }
             >
                 <Row>
-                    <Col xs={ 9 } md={ 10 } style={ { textAlign: 'right' } }>
+                    <Col xs={ 9 } md={ 11 } style={ { textAlign: 'right' } }>
                         <Icon type='md-calendar' style={ { color: '#51b26d', fontSize: 16, marginRight: '2px' } } />
                     </Col>
 

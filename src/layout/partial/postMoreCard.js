@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import * as Yoshino from 'yoshino';
-import Title from './postCard/title';
+import Title from '../widget/title';
 import Content from './postCard/content';
 import CardShadow from '../widget/cardShadow';
 import { MoreCardInfo } from './postCard/Info'
@@ -27,7 +27,16 @@ export default class PostCard extends React.Component {
     render() {
         return (
             <CardShadow margin='24px'>
-                <Title value={this.props.data.info.title} />
+                <Title 
+                    value={this.props.data.info.title}  
+                    style={{ 
+                        marginTop: '8px',
+                        textAlign: 'center' , 
+                        fontSize: '25px',
+                        color: '#444',
+                        fontWeight: 700 
+                    }}
+                />
                 <MoreCardInfo info={this.props.data.info} />
                 <Content value={this.props.data.content} />
                 <More id={this.props.id} />
