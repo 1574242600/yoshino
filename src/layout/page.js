@@ -47,11 +47,7 @@ export default class Pages extends React.Component {
         return null;
     }
 
-    componentDidUpdate() {
-        loadHljs();
-    }
-
-    async componentDidMount() {
+    async init() {
         let state = this.state;
         let page = this.props.data.page;
 
@@ -63,6 +59,15 @@ export default class Pages extends React.Component {
 
         state.loading = false;
         this.setState(state);
+    }
+
+    componentDidUpdate() {
+        if (this.state.loading) this.init()
+        loadHljs();
+    }
+
+    async componentDidMount() {
+        this.init()
     }
 
     render() {
