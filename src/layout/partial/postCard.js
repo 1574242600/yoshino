@@ -11,7 +11,6 @@ export default class PostCard extends React.Component {
         return (
             <CardShadow margin={ isLg ? '24px' : '0' }>
                 <Title 
-                    value={data.info.title} 
                     style={{ 
                         marginTop: '8px',
                         textAlign: 'center' , 
@@ -19,7 +18,7 @@ export default class PostCard extends React.Component {
                         color: '#444',
                         fontWeight: 700 
                     }}
-                />
+                >{data.info.title}</Title>
                 <div>
                     {
                         //不加div 会报错 

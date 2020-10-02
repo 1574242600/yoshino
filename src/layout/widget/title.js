@@ -6,7 +6,7 @@ export default class Title extends React.Component {
             <h2 
                 style={this.props.style}
             >
-                {this.props.value}
+                {this.props.children}
             </h2>
         )
     }

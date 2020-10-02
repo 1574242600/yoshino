@@ -28,7 +28,6 @@ export default class PostCard extends React.Component {
         return (
             <CardShadow margin='24px'>
                 <Title 
-                    value={this.props.data.info.title}  
                     style={{ 
                         marginTop: '8px',
                         textAlign: 'center' , 
@@ -36,7 +35,7 @@ export default class PostCard extends React.Component {
                         color: '#444',
                         fontWeight: 700 
                     }}
-                />
+                >{this.props.data.info.title}</Title>
                 <MoreCardInfo info={this.props.data.info} />
                 <Content value={this.props.data.content} />
                 <More id={this.props.id} />
