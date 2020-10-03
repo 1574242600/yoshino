@@ -34,9 +34,9 @@ export default class Archives extends React.Component {
                 }
 
                 { !this.state.loading && 
-                    
+                     <RowPageCard InfoCard={<InfoCard type='page' total={this.state.data.length} />}>
                         <ArchiveCard data={ this.state.data } />
-                   
+                    </RowPageCard>
                 }
                 </ColCenter>
             </Row>

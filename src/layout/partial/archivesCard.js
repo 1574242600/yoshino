@@ -31,12 +31,12 @@ export default class ArchiveCard extends React.Component {
     render() {
         return (
             <CardShadow margin={ window.isLg ? '24px' : '0' }>
-                <div style={{marginLeft: '8px'}}>
+                <div style={{marginLeft: '16px'}}>
                     <Title
                         style={ {
                             marginTop: '8px',
                             textAlign: 'left',
-                            fontSize: '25px',
+                            fontSize: '36px',
                             color: '#444',
                             fontWeight: 700,
                         } }

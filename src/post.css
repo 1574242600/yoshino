@@ -201,3 +201,11 @@ footer a:hover {
     
     color: #69f0ae
 }
+
+.archives-list li {
+    margin-left: 5%;
+    list-style: disc;
+    margin-bottom: 30px;
+    border-bottom: 1px dashed #ccc;
+    color: #555;
+}

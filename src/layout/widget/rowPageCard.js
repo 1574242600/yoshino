@@ -20,3 +20,7 @@ export default class RowPageCard extends React.Component {
         );
     }
 }
+
+RowPageCard.defaultProps = {
+    InfoCard: <div></div>
+}
