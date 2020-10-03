@@ -38,9 +38,10 @@ export default class Archives extends React.Component {
 
     async componentDidMount() {
         let state = this.state;
-        state.data = this.handleData(await Site.getArchives());
+        state.data = await Site.getArchives()
+        state.handledData = this.handleData(state.data);
         state.loading = false;
-        Site.setMeta('description', Object.values(state.data)[0].slice(0, 5).map(v => v.timeString + '  ' + v.title).join("\n"))
+        Site.setMeta('description', Object.values(state.handledData)[0].slice(0, 5).map(v => v.timeString + '  ' + v.title).join("\n"))
         this.setState(state);
     }
 
@@ -54,7 +55,7 @@ export default class Archives extends React.Component {
 
                 { !this.state.loading && 
                      <RowPageCard InfoCard={<InfoCard type='page' total={this.state.data.length} />}>
-                        <ArchiveCard data={ this.state.data } />
+                        <ArchiveCard data={ this.state.handledData } />
                     </RowPageCard>
                 }
                 </ColCenter>
