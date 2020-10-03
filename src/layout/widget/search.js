@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Yoshino from 'yoshino';
-import { i18n as _ } from '../../global';
-const { Icon, Modal } = Yoshino;
+import { i18n as _, Site } from '../../global';
+const { Icon, Modal, Input } = Yoshino;
 
 export default class Search extends React.Component {
     constructor (props) {
@@ -11,11 +11,17 @@ export default class Search extends React.Component {
 
     onClick() {
         Modal.confirm({
-            icon: <Icon type='md-checkmark' />,
-            title: '这是一个标题！！！',
-            content: '这是一个内容主题！这是一个内容主题！这是一个内容主题！这是一个内容主题！！',
+            title: _('Search'),
+            content: <form id='search' action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form" style={{paddingTop: '8px'}}>
+                    <Input type="text" name="q" placeholder="Search"/>
+                    <input type="hidden" name="sitesearch" value={Site.config.url} />
+                </form>,
             width: 400,
             showClose: true,
+            onOk: () => {
+                document.getElementById('search').submit();
+                return true;
+            } 
         });
     }
 
