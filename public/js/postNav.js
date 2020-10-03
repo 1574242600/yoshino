@@ -58,7 +58,7 @@ let postNav = {
 
         function createIntersectionObserver(marginTop) {
             marginTop = Math.floor(marginTop + 10000);
-            let intersectionObserver = new IntersectionObserver((entries, observe) => {
+            window.intersectionObservers = new IntersectionObserver((entries, observe) => {
                 let scrollHeight = document.documentElement.scrollHeight + 100;
                 if (scrollHeight > marginTop) {
                     observe.disconnect();
@@ -72,7 +72,7 @@ let postNav = {
                 threshold: 0
             });
             sections.forEach(element => {
-                element && intersectionObserver.observe(element);
+                element && window.intersectionObservers.observe(element);
             });
         }
 
@@ -92,6 +92,14 @@ window.initPostNav = async () => {
         document.body.appendChild(anime);
     } else {
         postNav.registerSidebarTOC();
+    }
+}
+
+
+window.destroyPostNav = () => {
+    try {
+        window.intersectionObservers.disconnect();
+    } catch {
     }
 }
 
