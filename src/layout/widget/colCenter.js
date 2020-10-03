@@ -18,3 +18,7 @@ export default class ColCenter extends React.Component {
         )
     }
 }
+
+ColCenter.defaultProps = {
+    width: '100%'
+}
