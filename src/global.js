@@ -30,9 +30,11 @@ const loadHljs = async () => {
         hljs.src = '//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js';
         document.body.appendChild(hljs);
     } else {
-        window.hljs.initHighlighting.called = false;
-        window.hljs.initHighlighting();
-        window.hljs.initLineNumbersOnLoad();
+        try {
+            window.hljs.initHighlighting.called = false;
+            window.hljs.initHighlighting();
+            window.hljs.initLineNumbersOnLoad();
+        } catch {}
     }
 }
 
