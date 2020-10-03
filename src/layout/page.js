@@ -5,7 +5,7 @@ import RowPageCard from './widget/rowPageCard';
 import Loading from './widget/loading/loadingPage';
 import PostCard from './partial/postMoreCard';
 import Pagination from './partial/pagination';
-import PageInfoCard from './partial/infoCard'
+import InfoCard from './partial/infoCard'
 import { loadHljs } from '../global';
 import { Site } from '../global';
 const { Row } = Yoshino.Grid;
@@ -77,7 +77,7 @@ export default class Pages extends React.Component {
                     }
                     
                         { !this.state.loading &&
-                            <RowPageCard InfoCard={<PageInfoCard type='page' total={this.state.index.total} />}>
+                            <RowPageCard InfoCard={<InfoCard type='page' total={this.state.index.total} />}>
                                 { this.renderPostCards() }
                                 <Pagination 
                                     page={this.state.page + 1}

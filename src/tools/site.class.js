@@ -35,10 +35,7 @@ export default class Site {
         return true;
     }
     
-    static async getIndex() {
-        return await _fetch('./post/index.json', 'index');
-    }
-
+   
     static async getPostsList(page) {
         return await _fetch(`./post/${page}/index.json`, `page-${page}`);
     }
@@ -50,8 +47,16 @@ export default class Site {
         return await _fetch(`./post/${page}/${id}.json`);
     }
 
+    static async getIndex() {
+        return await _fetch('./post/index.json', 'index');
+    }
+
     static async getAbout() {
-        return await _fetch(`./about.json`);
+        return await _fetch(`./about.json`, `about`);
+    }
+
+    static async getArchives() {
+        return await _fetch(`./archive.json`, `archive`);
     }
 
 };

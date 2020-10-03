@@ -14,4 +14,10 @@ export default class TimeToString {
         let d = this.time.getDate();
         return `${y}-${m}-${d}`
     }
+
+    archive() {
+        let m = this.time.getMonth() + 1;
+        let d = this.time.getDate();
+        return `${m}-${d}`
+    }
 }
