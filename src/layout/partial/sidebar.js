@@ -16,7 +16,7 @@ export default class Sidebar extends React.Component {
     }
 
     render() {
-        if (window.innerWidth < 992) return <MobileSidebar path={this.props.location.search} history={this.props.history} />
+        if (!window.isLg) return <MobileSidebar path={this.props.location.search} history={this.props.history} />
 
         return (
             <Col 

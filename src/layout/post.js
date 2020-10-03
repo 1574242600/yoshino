@@ -40,11 +40,9 @@ export default class Post extends React.Component {
     async componentDidMount() {
         let state = this.state;
         let id = this.props.data.id;
-
-        if (this.state.loading) {
-            state.data = await this.getPostData(id);
-            state.id = id;
-        }
+        
+        state.data = await this.getPostData(id);
+        state.id = id;
         
         Site.setTitle(this.state.data.info.title);
         state.loading = false;
@@ -58,9 +56,7 @@ export default class Post extends React.Component {
                 { this.state.loading &&
                     <Loading Loading={ this.state.loading } />
                 }
-                <style>
-                    
-                </style>
+
                 { !this.state.loading &&
                     <RowPageCard InfoCard={<InfoCard type='post' nav={this.state.data.nav} />}>
                         <PostCard data={this.state.data} isPage={false} />

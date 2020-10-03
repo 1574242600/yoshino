@@ -21,11 +21,7 @@ export default class About extends React.Component {
 
     async componentDidMount() {
         let state = this.state;
-
-        if (this.state.loading) {
-            state.data = await Site.getAbout();
-        }
-
+        state.data = await Site.getAbout();
         state.loading = false;
         this.setState(state);
     }

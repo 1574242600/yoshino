@@ -51,11 +51,9 @@ export default class Pages extends React.Component {
         let state = this.state;
         let page = this.props.data.page;
 
-        if (this.state.loading) {
-            if (state.index === null) state.index = await this.getIndex();
-            state.postsList = await this.getPostsList(page);
-            state.page = page;
-        }
+        if (state.index === null) state.index = await this.getIndex();
+        state.postsList = await this.getPostsList(page);
+        state.page = page;
 
         state.loading = false;
         this.setState(state);
