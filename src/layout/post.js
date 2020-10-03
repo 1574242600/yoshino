@@ -45,6 +45,7 @@ export default class Post extends React.Component {
         state.id = id;
         
         Site.setTitle(this.state.data.info.title);
+        Site.setMeta('description', this.state.data.content.slice(0, 80).replace(/<[^>]+>/g,""))
         state.loading = false;
         this.setState(state);
     }

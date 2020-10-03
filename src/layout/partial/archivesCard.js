@@ -2,32 +2,10 @@ import React from 'react';
 import Title from '../widget/title';
 import CardShadow from '../widget/cardShadow';
 import TimeLine from './archivesCard/timeLine';
-import { i18n as _, TimeToString } from '../../global';
+import { i18n as _ } from '../../global';
 
 
 export default class ArchiveCard extends React.Component {
-    handledData = {};
-
-    constructor (props) {
-        super(props);
-        this.handleData(this.props.data);
-    }
-
-    handleData(data) {
-        (function yaerSortToHandledData(it) {
-            data.forEach((value) => {
-                let Time = new TimeToString(value.date)
-                let year = Time.time.getFullYear();
-                if (it.handledData[year] === undefined) it.handledData[year] = [];
-                it.handledData[year].push({
-                    id: value.id,
-                    title: value.title,
-                    timeString: Time.archive()
-                })
-            })
-        })(this)
-    }
-
     render() {
         return (
             <CardShadow margin={ window.isLg ? '24px' : '0' }>
@@ -41,7 +19,7 @@ export default class ArchiveCard extends React.Component {
                             fontWeight: 700,
                         } }
                     >{ _('Archives') }</Title>
-                    <TimeLine data={ this.handledData } />
+                    <TimeLine data={ this.props.data } />
                 </div>
             </CardShadow>
         )
