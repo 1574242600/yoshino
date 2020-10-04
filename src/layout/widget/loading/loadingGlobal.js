@@ -2,8 +2,6 @@ import React from 'react';
 import { Loading } from 'yoshino';
 import { Transitions } from 'yoshino';
 
-const { Scale } = Transitions;
-
 export default class LoadingGlobal extends React.Component {
     render() {
         return (
