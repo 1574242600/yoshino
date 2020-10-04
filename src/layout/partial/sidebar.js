@@ -12,7 +12,6 @@ export default class Sidebar extends React.Component {
     }
 
     render() {
-        if (!window.isLg) return <MobileSidebar path={this.props.location.search} history={this.props.history} />
         return (
             <Suspense fallback={<div></div>}>
                 {!window.isLg ? 
