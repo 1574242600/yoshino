@@ -9,14 +9,14 @@ window.isLg = window.innerWidth > 992;
 const loadHljs = async () => {
     if (window.hljs === undefined) {
         let hljs = document.createElement('script');
-
+        hljs.async = true;
         let css = document.createElement('style');
         let cssContent = document.createTextNode('td.hljs-ln-code {padding-left: 5px;}');
         css.appendChild(cssContent);
 
         hljs.onload = () => {
             let number = document.createElement('script');
-
+            number.async = true;
             number.onload = () => {
                 window.hljs.initHighlighting()
                 document.body.appendChild(css);
