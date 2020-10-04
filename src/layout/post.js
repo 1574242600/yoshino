@@ -2,11 +2,11 @@ import React from 'react';
 import * as Yoshino from 'yoshino';
 import ColCenter from './widget/colCenter';
 import Loading from './widget/loading/loadingPage';
-import InfoCard from './partial/infoCard';
 import PostCard from './partial/postCard';
 import RowPageCard from './widget/rowPageCard';
 import Comment from './partial/comment';
 import { loadHljs, Site } from '../global';
+const InfoCard = React.lazy(() => import('./partial/infoCard'));
 const { Row } = Yoshino.Grid;
 
 export default class Post extends React.Component {

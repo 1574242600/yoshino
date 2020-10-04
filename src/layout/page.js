@@ -5,9 +5,9 @@ import RowPageCard from './widget/rowPageCard';
 import Loading from './widget/loading/loadingPage';
 import PostCard from './partial/postMoreCard';
 import Pagination from './partial/pagination';
-import InfoCard from './partial/infoCard'
 import { loadHljs } from '../global';
 import { Site } from '../global';
+const InfoCard = React.lazy(() => import('./partial/infoCard'));
 const { Row } = Yoshino.Grid;
 
 export default class Pages extends React.Component {

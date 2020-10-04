@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import * as Yoshino from 'yoshino';
 const { Col, Row } = Yoshino.Grid;
 
@@ -14,7 +14,9 @@ export default class RowPageCard extends React.Component {
                 {this.props.children}
             </Col>
             <Col xs={0} xl={7} xxl={2}>
-                {this.props.InfoCard}
+                <Suspense fallback={<div> Loading... </div>}>
+                    {this.props.InfoCard}
+                </Suspense>
             </Col>
             </Row>
         );

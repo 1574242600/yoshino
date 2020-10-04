@@ -4,8 +4,8 @@ import ColCenter from './widget/colCenter';
 import ArchiveCard from './partial/archivesCard'
 import Loading from './widget/loading/loadingPage';
 import RowPageCard from './widget/rowPageCard';
-import InfoCard from './partial/infoCard'
 import { Site, TimeToString} from '../global';
+const InfoCard = React.lazy(() => import('./partial/infoCard'));
 const { Row } = Yoshino.Grid;
 
 export default class Archives extends React.Component {
