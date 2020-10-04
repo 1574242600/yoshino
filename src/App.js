@@ -1,5 +1,4 @@
 import React from 'react';
-import LoadingGlobal from './layout/widget/loading/loadingGlobal';
 import Route from './route';
 import { Site , Cache , i18nInit } from './global';
 import 'yoshino/lib/index.css';
@@ -41,11 +40,10 @@ export default class App extends React.Component {
     render() {
         return (
             <div>
-                {   
+                {
                     Site.isCacheTimedOut() &&
                     Site.clearSiteCache() &&
-                    Site.setSiteCacheTime() && 
-                    <LoadingGlobal Loading={this.state.loading} />
+                    Site.setSiteCacheTime() 
                 }
 
                 {!this.state.loading && <Route />}
