@@ -86,10 +86,9 @@ export default class Layout extends React.Component {
 
     render() {
         return (
-            <Suspense fallback={ <LoadingGlobal loading={ true } /> }>
-                <Row>
-
-                    <Sidebar location={ this.props.location } history={ this.props.history } />
+            <Row>
+                <Sidebar location={ this.props.location } history={ this.props.history } />
+                <Suspense fallback={ <LoadingGlobal loading={ true } /> }>
                     <Col
                         xs={ 24 }
                         lg={ { offset: 4, span: 20 } }
@@ -99,10 +98,10 @@ export default class Layout extends React.Component {
                         <div style={ { minHeight: 'calc(100vh - 79px)' } }>{ this.match() }</div>
                         <Footer />
                     </Col>
+                </Suspense>
+                <BackTop />
+            </Row>
 
-                    <BackTop />
-                </Row>
-            </Suspense>
         );
     }
 }
