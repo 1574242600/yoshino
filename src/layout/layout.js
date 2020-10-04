@@ -3,7 +3,7 @@ import * as Yoshino from 'yoshino';
 import Sidebar from './partial/sidebar';
 import BackTop from './widget/backTop';
 import Footer from './partial/footer';
-import LoadingGlobal from './widget/loading/loadingGlobal';
+import LoadingPage from './widget/loading/loadingPage';
 import * as Index from './index';
 import { Site, i18n as _ } from '../global';
 const { Col, Row } = Yoshino.Grid;
@@ -88,7 +88,7 @@ export default class Layout extends React.Component {
         return (
             <Row>
                 <Sidebar location={ this.props.location } history={ this.props.history } />
-                <Suspense fallback={ <LoadingGlobal loading={ true } /> }>
+                <Suspense fallback={ <LoadingPage loading={ true } /> }>
                     <Col
                         xs={ 24 }
                         lg={ { offset: 4, span: 20 } }

@@ -4,7 +4,7 @@ import { Transitions } from 'yoshino';
 
 const { Scale } = Transitions;
 
-export default class LoadingGlobal extends React.Component {
+export default class LoadingPage extends React.Component {
     render() {
         return (
             <Scale timeout={300} active={this.props.Loading} >
