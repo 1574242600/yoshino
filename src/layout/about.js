@@ -1,7 +1,6 @@
 import React from 'react';
 import * as Yoshino from 'yoshino';
-import ColCenter from './widget/colCenter';
-import Loading from './widget/loading/loadingPage';
+import LoadingCard from './widget/loadingCard';
 import InfoCard from './partial/infoCard';
 import PostCard from './partial/postCard';
 import RowPageCard from './widget/rowPageCard';
@@ -30,18 +29,14 @@ export default class About extends React.Component {
 
         return (
             <Row>
-                <ColCenter width='100%'>
-                { this.state.loading &&
-                    <Loading Loading={ this.state.loading } />
-                }
-
+                <LoadingCard width='100%' loading={ this.state.loading }>
                 { !this.state.loading &&
                     <RowPageCard InfoCard={<InfoCard type='post' nav={this.state.data.nav} />}>
                         <PostCard data={this.state.data} isPage={true} />
                         <Comment postId={this.state.id} />
                     </RowPageCard>
                 }
-                </ColCenter>
+                </LoadingCard>
             </Row>
         );
     }

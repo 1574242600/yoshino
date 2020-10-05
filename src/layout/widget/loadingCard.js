@@ -1,8 +1,9 @@
 import React from 'react';
 import * as Yoshino from 'yoshino';
+import Loading from './loading/loadingPage';
 const { Col } = Yoshino.Grid;
 
-export default class ColCenter extends React.Component {
+export default class LoadingCard extends React.Component {
     render() {
         return (
             <Col
@@ -13,12 +14,16 @@ export default class ColCenter extends React.Component {
 
                 } }
             >
-                {this.props.children}
+                { this.props.loading &&
+                    <Loading Loading={ this.props.loading } />
+                }
+
+                { this.props.children }
             </Col>
         )
     }
 }
 
-ColCenter.defaultProps = {
+LoadingCard.defaultProps = {
     width: '100%'
 }

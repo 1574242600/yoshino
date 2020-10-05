@@ -1,8 +1,7 @@
 import React from 'react';
 import * as Yoshino from 'yoshino';
-import ColCenter from './widget/colCenter';
+import LoadingCard from './widget/loadingCard';
 import ArchiveCard from './partial/archivesCard'
-import Loading from './widget/loading/loadingPage';
 import RowPageCard from './widget/rowPageCard';
 import { Site, TimeToString} from '../global';
 const InfoCard = React.lazy(() => import('./partial/infoCard'));
@@ -48,17 +47,13 @@ export default class Archives extends React.Component {
     render() {
         return (
             <Row>
-                <ColCenter width='95%'>
-                { this.state.loading &&
-                    <Loading Loading={ this.state.loading } />
-                }
-
-                { !this.state.loading && 
-                     <RowPageCard InfoCard={<InfoCard type='page' total={this.state.data.length} />}>
-                        <ArchiveCard data={ this.state.handledData } />
-                    </RowPageCard>
-                }
-                </ColCenter>
+                <LoadingCard width='95%' loading={ this.state.loading }>
+                    { !this.state.loading && 
+                        <RowPageCard InfoCard={<InfoCard type='page' total={this.state.data.length} />}>
+                            <ArchiveCard data={ this.state.handledData } />
+                        </RowPageCard>
+                    }
+                </LoadingCard>
             </Row>
         )
     }

@@ -1,8 +1,7 @@
 import React from 'react';
 import * as Yoshino from 'yoshino';
-import ColCenter from './widget/colCenter';
+import LoadingCard from './widget/loadingCard';
 import RowPageCard from './widget/rowPageCard';
-import Loading from './widget/loading/loadingPage';
 import PostCard from './partial/postMoreCard';
 import Pagination from './partial/pagination';
 import { loadHljs } from '../global';
@@ -30,8 +29,8 @@ export default class Pages extends React.Component {
     }
 
     renderPostCards() {
-        let postCards =  this.state.postsList.list.map((post, index) => {
-            return (<PostCard key={index} id={post.id} data={ post.data } />)
+        let postCards = this.state.postsList.list.map((post, index) => {
+            return (<PostCard key={ index } id={ post.id } data={ post.data } />)
         })
 
         return postCards;
@@ -71,22 +70,18 @@ export default class Pages extends React.Component {
     render() {
         return (
             <Row>
-                <ColCenter width='90%'>
-                    { this.state.loading &&
-                        <Loading Loading={ this.state.loading } />
+                <LoadingCard width='90%' loading={ this.state.loading }>
+                    { !this.state.loading &&
+                        <RowPageCard InfoCard={ <InfoCard type='page' total={ this.state.index.total } /> }>
+                            { this.renderPostCards() }
+                            <Pagination
+                                page={ this.state.page + 1 }
+                                history={ this.props.history }
+                                total={ this.state.index.total }
+                            />
+                        </RowPageCard>
                     }
-                    
-                        { !this.state.loading &&
-                            <RowPageCard InfoCard={<InfoCard type='page' total={this.state.index.total} />}>
-                                { this.renderPostCards() }
-                                <Pagination 
-                                    page={this.state.page + 1}
-                                    history={this.props.history}
-                                    total={this.state.index.total}
-                                />
-                            </RowPageCard>
-                        }
-                </ColCenter>
+                </LoadingCard>
             </Row>
         );
     }
