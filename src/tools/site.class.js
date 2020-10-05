@@ -51,14 +51,11 @@ export default class Site {
         return await _fetch('./post/index.json', 'index');
     }
 
-    static async getAbout() {
-        return await _fetch(`./about.json`, `about`);
+    static async getPage(name) {
+        return await _fetch(`./${name}.json`, name).catch( e => {
+            console.error(e)
+        });
     }
-
-    static async getArchives() {
-        return await _fetch(`./archive.json`, `archive`);
-    }
-
 };
 
 
