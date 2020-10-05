@@ -2,7 +2,6 @@ import React from 'react';
 import Fixed from './infoCard/fixed';
 import PageInfo from './infoCard/pageInfo';
 import PostInfo from './infoCard/postInfo';
-
 export default class InfoCard extends React.Component {
     render() {
         if (!window.isLg) return (<div></div>)
