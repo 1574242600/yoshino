@@ -3,8 +3,8 @@ import Title from '../../widget/title';
 import PostLi from './postsLi';
 export default class ArchiveTimeline extends React.Component {
     renderPostList(year) {
-        return this.props.data[year].map(v => {
-            return <PostLi data={v} />
+        return this.props.data[year].map((v, index)=> {
+            return <PostLi data={v} key={index} />
         })
     }
 
@@ -14,9 +14,9 @@ export default class ArchiveTimeline extends React.Component {
             <div style={ { marginTop: '16px' } } className='archives' >
                 <ul>
                     {
-                        yearList.map(year => {
+                        yearList.map((year, index) => {
                             return (
-                                <li>
+                                <li key={index} >
                                     <Title style={ {
                                         textAlign: 'left',
                                         fontSize: '24px',
