@@ -1,11 +1,12 @@
 import React from 'react';
 import Route from './route';
-import { Site , Cache , i18nInit } from './global';
+import { Site, Cache, i18nInit } from './global';
+import LoadingGlobal from './layout/widget/loading/loadingGlobal';
 import 'yoshino/lib/index.css';
 import './post.css'  //theme-next.org post-body
 
 export default class App extends React.Component {
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.state = {
             config: null,
@@ -16,7 +17,7 @@ export default class App extends React.Component {
     componentDidMount() {
         Site.getConfig().then(config => {
             if (Cache.get('i18n') === null) {
-                i18nInit(config.language).then( _ => {
+                i18nInit(config.language).then(_ => {
                     Site.setTitle();
                     Site.setMeta('author', config.author)
                     Site.setMeta('description', config.description)
@@ -43,12 +44,14 @@ export default class App extends React.Component {
                 {
                     Site.isCacheTimedOut() &&
                     Site.clearSiteCache() &&
-                    Site.setSiteCacheTime() 
+                    Site.setSiteCacheTime()
                 }
 
-                {!this.state.loading && <Route />}
+                
+                <LoadingGlobal loading={this.state.loading} />
+                {!this.state.loading && <Route /> }
             </div>
-            
+
         );
     }
 }
