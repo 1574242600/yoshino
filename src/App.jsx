@@ -46,7 +46,6 @@ export default class App extends React.Component {
                     Site.clearSiteCache() &&
                     Site.setSiteCacheTime()
                 }
-
                 
                 <LoadingGlobal loading={this.state.loading} />
                 {!this.state.loading && <Route /> }

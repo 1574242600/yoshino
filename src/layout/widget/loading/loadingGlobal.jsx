@@ -4,7 +4,7 @@ const { Scale } = Transitions;
 export default class LoadingGlobal extends React.Component {
     render() {
         return (
-            <Scale timeout={ 300 } active={ this.props.Loading }>
+            <Scale timeout={ 1000 } active={ this.props.loading }>
                 <div>
                     <div style={ {
                         background: '#ffffff',
@@ -26,7 +26,8 @@ export default class LoadingGlobal extends React.Component {
                     } }
                     >
                         Loading......
-                    </div></div>
+                    </div>
+                </div>
             </Scale>
         );
     }
