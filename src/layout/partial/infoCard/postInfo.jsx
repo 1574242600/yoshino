@@ -15,7 +15,7 @@ export default class PostInfo extends React.Component {
     }
 
     componentWillUnmount() {
-        window.destroyPostNav();
+        if (window.destroyPostNav) window.destroyPostNav();
     }
 
     renderNav() {
