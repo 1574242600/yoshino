@@ -32,5 +32,5 @@ export default class Comment extends React.Component {
 }
 
 Comment.propTypes = {
-    postId: PropTypes.number
+    postId: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { i18n as _, TimeToString } from '../../../global';
+import { i18n as _, TimeToString } from '../../../../global';
 
 export default class Time extends React.Component {
     constructor (props) {

@@ -19,5 +19,5 @@ CardShadow.defaultProps = {
 
 CardShadow.propTypes = {
     margin: PropTypes.string,
-    children: PropTypes.element
+    children: PropTypes.oneOfType([PropTypes.array, PropTypes.object])
 };

@@ -65,6 +65,6 @@ export default class Disqus extends React.Component {
 }
 
 Disqus.propTypes = {
-    postId: PropTypes.number,
+    postId: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     id: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };

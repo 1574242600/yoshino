@@ -32,5 +32,5 @@ LoadingCard.defaultProps = {
 LoadingCard.propTypes = {
     width: PropTypes.string,
     loading: PropTypes.bool,
-    children: PropTypes.element
+    children:  PropTypes.oneOfType([PropTypes.element, PropTypes.bool])
 };

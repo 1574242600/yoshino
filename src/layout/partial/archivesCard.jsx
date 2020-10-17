@@ -9,7 +9,7 @@ export default class ArchiveCard extends React.Component {
     render() {
         return (
             <CardShadow margin={ window.isLg ? '24px' : '0' }>
-                <div style={{marginLeft: '16px'}}>
+                <div style={ { marginLeft: '16px' } }>
                     <Title
                         style={ {
                             marginTop: '8px',
@@ -27,5 +27,5 @@ export default class ArchiveCard extends React.Component {
 }
 
 ArchiveCard.propTypes = {
-    data: PropTypes.arrayOf(PropTypes.object)
+    data: PropTypes.object
 };

@@ -37,5 +37,5 @@ export default class ArchiveTimeline extends React.Component {
 }
 
 ArchiveTimeline.propTypes = {
-    data: PropTypes.objectOf(PropTypes.object)
+    data: PropTypes.object
 };

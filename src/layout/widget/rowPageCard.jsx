@@ -29,6 +29,6 @@ RowPageCard.defaultProps = {
 };
 
 RowPageCard.propTypes = {
-    InfoCard: PropTypes.element.isRequired,
-    children: PropTypes.element
+    InfoCard: PropTypes.element,
+    children: PropTypes.oneOfType([PropTypes.array, PropTypes.object])
 };
