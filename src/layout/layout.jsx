@@ -1,4 +1,5 @@
 import React, { Suspense } from 'react';
+import PropTypes from 'prop-types';
 import * as Yoshino from 'yoshino';
 import Sidebar from './partial/sidebar';
 import BackTop from './widget/backTop';
@@ -18,7 +19,7 @@ let sub = {
                 sub.Pages.page = Number(match[1]);
             } else {
                 sub.Pages.page = 0;
-            };
+            }
 
             Site.setTitle(sub.Pages.page === 0 ? _('Home') : `第${sub.Pages.page + 1}页`);
         }
@@ -34,34 +35,34 @@ let sub = {
     Archives: {
         isRender: false,
         is: (path) => (path === '?/archives'),
-        init: (Lay) => Site.setTitle(_('Archives'))
+        init: () => Site.setTitle(_('Archives'))
     },
     Link: {
         isRender: false,
         is: (path) => (path === '?/link'),
-        init: (Lay) => Site.setTitle(_('Link'))
+        init: () => Site.setTitle(_('Link'))
     },
     About: {
         isRender: false,
         is: (path) => (path === '?/about'),
-        init: (Lay) => Site.setTitle(_('About'))
+        init: () => Site.setTitle(_('About'))
     }
-}
+};
 
 export default class Layout extends React.Component {
 
     constructor (props) {
-        super(props)
+        super(props);
         this.state = {
             path: this.props.location.search,
-        }
+        };
     }
 
     static getDerivedStateFromProps(props, state) {
         if (props.location.search !== state.path) {
             return {
                 path: props.location.search
-            }
+            };
         }
 
         return null;
@@ -74,13 +75,13 @@ export default class Layout extends React.Component {
                 if (sub[mod].is(this.state.path)) {
                     sub[mod].init(this);
                     let Match = Index[mod];
-                    return <Match data={ sub[mod] } history={ this.props.history } />
+                    return <Match data={ sub[mod] } history={ this.props.history } />;
                 }
             }
 
-            return (<Index.Notfound />)
+            return (<Index.Notfound />);
         } catch {
-            return (<Index.Notfound />)
+            return (<Index.Notfound />);
         }
     }
 
@@ -106,5 +107,11 @@ export default class Layout extends React.Component {
     }
 }
 
+Layout.propTypes = {
+    location: PropTypes.shape({
+        search: PropTypes.string
+    }),
+    history: PropTypes.object
+};
 
 

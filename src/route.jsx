@@ -2,7 +2,7 @@ import React from 'react';
 import {
     BrowserRouter as Router,
     Route
-} from "react-router-dom";
+} from 'react-router-dom';
 import Layout from './layout/layout';
 
 
@@ -12,7 +12,7 @@ export default class Routers extends React.Component {
             <Router>
                 <Route component={ Layout }/>
             </Router>
-        )
+        );
     }
 } 
 

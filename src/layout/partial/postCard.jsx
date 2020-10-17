@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { CardInfo } from './postCard/Info';
 import Content from './postCard/content';
 import CardShadow from '../widget/cardShadow';
@@ -19,13 +20,19 @@ export default class PostCard extends React.Component {
                     }}
                 >{data.info.title}</Title>
                 <div>
-                    {
-                        //不加div 会报错 
-                    }
+                    {/*不加div 会报错*/ }
                     {!this.props.isPage && <CardInfo info={this.props.data.info} />}
                 </div>
                 <Content value={data.content} />
             </CardShadow>
-        )
+        );
     }
-} 
+}
+
+PostCard.propTypes = {
+    isPage: PropTypes.bool,
+    data: PropTypes.shape({
+        info: PropTypes.object,
+        content: PropTypes.string 
+    })
+};

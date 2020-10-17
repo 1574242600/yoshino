@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import * as Yoshino from 'yoshino';
 import LoadingCard from './widget/loadingCard';
 import PostCard from './partial/postCard';
@@ -15,14 +16,14 @@ export default class Post extends React.Component {
             id: null,
             loading: true,
             data: {},
-        }
+        };
     }
 
     static getDerivedStateFromProps(props, state) {
         if (props.data.id !== state.id) {
             return {
                 loading: true
-            }
+            };
         }
 
         return null;
@@ -32,8 +33,8 @@ export default class Post extends React.Component {
         loadHljs();
     }
 
-    async getPostData(id) {
-        return await Site.getPost(id)
+    getPostData(id) {
+        return Site.getPost(id);
     }
 
     async componentDidMount() {
@@ -44,7 +45,7 @@ export default class Post extends React.Component {
         state.id = id;
         
         Site.setTitle(this.state.data.info.title);
-        Site.setMeta('description', this.state.data.content.slice(0, 80).replace(/<[^>]+>/g,""))
+        Site.setMeta('description', this.state.data.content.slice(0, 80).replace(/<[^>]+>/g, ''));
         state.loading = false;
         this.setState(state);
     }
@@ -53,14 +54,20 @@ export default class Post extends React.Component {
         return (
             <Row>
                 <LoadingCard width='100%' loading={ this.state.loading }>
-                { !this.state.loading &&
+                    { !this.state.loading &&
                     <RowPageCard InfoCard={<InfoCard type='post' nav={this.state.data.nav} />}>
                         <PostCard data={this.state.data} isPage={false} />
                         <Comment postId={this.state.id} />
                     </RowPageCard>
-                }
+                    }
                 </LoadingCard>
             </Row>
         );
     }
 }
+
+Post.propTypes = {
+    data: PropTypes.shape({
+        id: PropTypes.number
+    })
+};

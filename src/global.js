@@ -2,7 +2,7 @@ import Cache from './tools/cache.class';
 import Site from './tools/site.class';
 import TimeToString from './tools/timeToString.class';
 import toc from './tools/toc';
-import i18n, { init as i18nInit } from './tools/i18n'
+import i18n, { init as i18nInit } from './tools/i18n';
 
 window.isLg = window.innerWidth > 992;
 
@@ -18,10 +18,10 @@ const loadHljs = async () => {
             let number = document.createElement('script');
             number.async = true;
             number.onload = () => {
-                window.hljs.initHighlighting()
+                window.hljs.initHighlighting();
                 document.body.appendChild(css);
                 window.hljs.initLineNumbersOnLoad();
-            }
+            };
 
             number.src = '//cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js';
             document.body.appendChild(number);
@@ -34,9 +34,11 @@ const loadHljs = async () => {
             window.hljs.initHighlighting.called = false;
             window.hljs.initHighlighting();
             window.hljs.initLineNumbersOnLoad();
-        } catch {}
+        } catch (e) {
+            console.error('hljs 加载错误: \n' + e);
+        }
     }
-}
+};
 
 const loadJs = async (name, async = true, callback, errorCallback) => {
     let js = document.createElement('script');
@@ -45,7 +47,7 @@ const loadJs = async (name, async = true, callback, errorCallback) => {
     js.onerror = errorCallback;
     js.src = `./js/${name}.js`;
     document.body.appendChild(js);
-}
+};
 
 
 export { Cache, Site, i18n, i18nInit, loadHljs, TimeToString, loadJs, toc };

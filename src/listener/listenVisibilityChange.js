@@ -4,6 +4,7 @@ export default () => {
     //改变标题
     if (Site.config.listener.visibilitychange.enable ? 'true' : 'false') {
         let OriginTitile = document.title;
+        // eslint-disable-next-line init-declarations
         let titleTime;
         document.addEventListener('visibilitychange', () => {
             if (document.hidden) {
@@ -15,6 +16,6 @@ export default () => {
                     document.title = OriginTitile;
                 }, 2000);
             }
-        })
+        });
     }
-} 
+};

@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 export default class Title extends React.Component {
     render() {
         return (
@@ -8,6 +8,11 @@ export default class Title extends React.Component {
             >
                 {this.props.children}
             </h2>
-        )
+        );
     }
 }
+
+Title.propTypes = {
+    style: PropTypes.object,
+    children: PropTypes.element
+};

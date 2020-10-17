@@ -1,9 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Title from '../widget/title';
 import CardShadow from '../widget/cardShadow';
 import TimeLine from './archivesCard/timeLine';
 import { i18n as _ } from '../../global';
-
 
 export default class ArchiveCard extends React.Component {
     render() {
@@ -22,6 +22,10 @@ export default class ArchiveCard extends React.Component {
                     <TimeLine data={ this.props.data } />
                 </div>
             </CardShadow>
-        )
+        );
     }
 }
+
+ArchiveCard.propTypes = {
+    data: PropTypes.arrayOf(PropTypes.object)
+};

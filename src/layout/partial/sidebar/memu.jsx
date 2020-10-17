@@ -1,15 +1,16 @@
 import * as React from 'react';
+import PropTypes from 'prop-types';
 import { Menu } from 'yoshino';
 import Site from '../../../tools/site.class';
-import { i18n as _ } from '../../../global' ;
+import { i18n as _ } from '../../../global';
 
 
 export default class Memu extends React.Component {
     //todo 子菜單
     mods = {}
-    homeMatch = [/\?\/page\/([0-9]+)/ , '1']
+    homeMatch = [/\?\/page\/([0-9]+)/, '1']
 
-    constructor(props) {
+    constructor (props) {
         super(props);
         this.mods = this.parseSiteMemu();
     }
@@ -21,7 +22,7 @@ export default class Memu extends React.Component {
 
         for (let name in memu) {
             let path = '?' + memu[name];
-            mods[path] = String(i) ;
+            mods[path] = String(i);
             i++;
         }
 
@@ -33,26 +34,25 @@ export default class Memu extends React.Component {
     }
 
     getActiveKey(path) {
-        if (path === '') return this.homeMatch[1];
-        if (this.homeMatch[0].test(path)) return this.homeMatch[1];
-        
+        if (path === '') {return this.homeMatch[1];}
+        if (this.homeMatch[0].test(path)) {return this.homeMatch[1];}
 
         return this.mods[path] ? this.mods[path] : '-1';
     }
-    
+
     renderItem(name, key) {
         return (
-            <Menu.Item key={ key }> 
+            <Menu.Item key={ key }>
                 { _(name) }
             </Menu.Item>
-        )
+        );
     }
 
     renderAllItem() {
         let memuList = Object.keys(Site.config.menu);
-        
+
         return memuList.map((name, i) => {
-            return this.renderItem(name, i + 1)
+            return this.renderItem(name, i + 1);
         });
     }
 
@@ -62,17 +62,22 @@ export default class Memu extends React.Component {
 
         return (
             //defaultActiveKey='1' defaultOpenKeys={['sub1']}
-            <Menu 
-                activeKey={ activeKey } 
+            <Menu
+                activeKey={ activeKey }
                 onSelect={
                     (key) => {
-                        this.props.history.push(this.getPath(key))
+                        this.props.history.push(this.getPath(key));
                     }
                 }
             >
-              { this.renderAllItem() }
+                { this.renderAllItem() }
             </Menu>
-        )
+        );
     }
- 
+
+}
+
+Memu.propTypes = {
+    path: PropTypes.string,
+    history: PropTypes.object
 };

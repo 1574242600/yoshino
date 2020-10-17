@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import * as Yoshino from 'yoshino';
 import LoadingCard from './widget/loadingCard';
 import RowPageCard from './widget/rowPageCard';
@@ -17,21 +18,21 @@ export default class Pages extends React.Component {
             index: null,
             postsList: {},
             page: 0,
-        }
+        };
     }
 
-    async getIndex() {
-        return await Site.getIndex();
+    getIndex() {
+        return Site.getIndex();
     }
 
-    async getPostsList(page) {
-        return await Site.getPostsList(page);
+    getPostsList(page) {
+        return Site.getPostsList(page);
     }
 
     renderPostCards() {
         let postCards = this.state.postsList.list.map((post, index) => {
-            return (<PostCard key={ index } id={ post.id } data={ post.data } />)
-        })
+            return (<PostCard key={ index } id={ post.id } data={ post.data } />);
+        });
 
         return postCards;
     }
@@ -40,7 +41,7 @@ export default class Pages extends React.Component {
         if (props.data.page !== state.page) {
             return {
                 loading: true
-            }
+            };
         }
 
         return null;
@@ -50,7 +51,7 @@ export default class Pages extends React.Component {
         let state = this.state;
         let page = this.props.data.page;
 
-        if (state.index === null) state.index = await this.getIndex();
+        if (state.index === null) {state.index = await this.getIndex();}
         state.postsList = await this.getPostsList(page);
         state.page = page;
 
@@ -59,12 +60,12 @@ export default class Pages extends React.Component {
     }
 
     componentDidUpdate() {
-        if (this.state.loading) this.init()
+        if (this.state.loading) {this.init();}
         loadHljs();
     }
 
     async componentDidMount() {
-        this.init()
+        this.init();
     }
 
     render() {
@@ -86,3 +87,11 @@ export default class Pages extends React.Component {
         );
     }
 }
+
+
+Pages.propTypes = {
+    data: PropTypes.shape({
+        page: PropTypes.number
+    }),
+    history: PropTypes.object
+};

@@ -8,6 +8,6 @@ export default class Notfound extends React.Component {
                 <div style={{fontSize: '60px', color: '#51b26d'}}>404</div>
                 <div style={{color: '#666'}}>{_('404text')}</div>
             </div>
-        )
+        );
     }
 }

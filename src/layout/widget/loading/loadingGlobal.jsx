@@ -1,10 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Transitions } from 'yoshino';
 const { Scale } = Transitions;
 export default class LoadingGlobal extends React.Component {
     render() {
         return (
-            <Scale timeout={ 1000 } active={ this.props.loading }>
+            <Scale timeout={ 1000 } active={ this.props.Loading }>
                 <div>
                     <div style={ {
                         background: '#ffffff',
@@ -32,3 +33,7 @@ export default class LoadingGlobal extends React.Component {
         );
     }
 }
+
+LoadingGlobal.propTypes = {
+    Loading: PropTypes.bool
+};

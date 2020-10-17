@@ -1,10 +1,10 @@
 // hexo
 
 function formatId(text) {
-    text = text.replace(/((?=[\x21-\x7e]+)[^A-Za-z0-9])$/g, "");
+    text = text.replace(/((?=[\x21-\x7e]+)[^A-Za-z0-9])$/g, '');
     text = text.trim(); 
-    text = text.replace(/\s+/g, "-");
-    text = text.replace(/((?=[\x21-\x7e]+)[^A-Za-z0-9-])/g, "");
+    text = text.replace(/\s+/g, '-');
+    text = text.replace(/((?=[\x21-\x7e]+)[^A-Za-z0-9-])/g, '');
     return text.toLowerCase();
 }
 
@@ -17,7 +17,7 @@ export default function toc(data, options = {}) {
         list_number: true
     }, options);
 
-    if (!data.length) return '';
+    if (!data.length) {return '';}
     const listNumber = options.list_number;
     let className = 'nav';
     let result = `<ol class="${className}">`;

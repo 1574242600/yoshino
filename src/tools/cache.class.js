@@ -1,17 +1,16 @@
 class Cache {
-    static available = true;
-
     static set(key, value) {
-        window.localStorage.setItem(key, value)
-        
+        window.localStorage.setItem(key, value);
     }
 
     static get(key) {
-        let value = window.localStorage.getItem(key);
+        let value;
         
         try {
+            value = window.localStorage.getItem(key);
             return JSON.parse(value);
-        } catch {
+        } catch (e) {
+            console.warn('localStorage Exception: \n' + e);
             return value;
         }
     }
@@ -22,12 +21,11 @@ class Cache {
 
 }
 
-
 function storageAvailable(type) {
-    var storage;
+    let storage;
     try {
         storage = window[type];
-        var x = '__storage_test__';
+        let x = '__storage_test__';
         storage.setItem(x, x);
         storage.removeItem(x);
         return true;

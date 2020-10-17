@@ -1,3 +1,3 @@
 import disqus from './disqus';
 
-export { disqus }
+export { disqus };

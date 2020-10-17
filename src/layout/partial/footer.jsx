@@ -1,5 +1,5 @@
 import React from 'react';
-import Since from './footer/since'
+import Since from './footer/since';
 import { Site } from '../../global';
 export default class Footer extends React.Component {
     render() {
@@ -19,6 +19,6 @@ export default class Footer extends React.Component {
                     Made with by { author }.
                 </div>
             </footer>
-        )
+        );
     }
 }

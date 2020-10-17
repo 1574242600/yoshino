@@ -1,7 +1,7 @@
 import React from 'react';
 import * as Yoshino from 'yoshino';
 import LoadingCard from './widget/loadingCard';
-import ArchiveCard from './partial/archivesCard'
+import ArchiveCard from './partial/archivesCard';
 import RowPageCard from './widget/rowPageCard';
 import { Site, TimeToString} from '../global';
 const InfoCard = React.lazy(() => import('./partial/infoCard'));
@@ -14,23 +14,23 @@ export default class Archives extends React.Component {
             loading: true,      //todo: 分页
             data: {},
             page: 0
-        }
+        };
     }
 
     handleData(data) {
         let handledData = {};
         (function yaerSort() {
             data.forEach((value) => {
-                let Time = new TimeToString(value.date)
+                let Time = new TimeToString(value.date);
                 let year = Time.time.getFullYear();
-                if (handledData[year] === undefined) handledData[year] = [];
+                if (handledData[year] === undefined) {handledData[year] = [];}
                 handledData[year].push({
                     id: value.id,
                     title: value.title,
                     timeString: Time.archive()
-                })
-            })
-        })()
+                });
+            });
+        })();
 
         return handledData;
     }
@@ -40,7 +40,7 @@ export default class Archives extends React.Component {
         state.data = await Site.getPage('archive');
         state.handledData = this.handleData(state.data);
         state.loading = false;
-        Site.setMeta('description', Object.values(state.handledData)[0].slice(0, 5).map(v => v.timeString + '  ' + v.title).join())
+        Site.setMeta('description', Object.values(state.handledData)[0].slice(0, 5).map(v => v.timeString + '  ' + v.title).join());
         this.setState(state);
     }
 
@@ -55,6 +55,6 @@ export default class Archives extends React.Component {
                     }
                 </LoadingCard>
             </Row>
-        )
+        );
     }
 }

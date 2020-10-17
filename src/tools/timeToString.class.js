@@ -1,5 +1,4 @@
 export default class TimeToString {
-    time;
     constructor(time) {
         this.time = new Date(time * 1000);
     }
@@ -12,12 +11,14 @@ export default class TimeToString {
         let y = this.time.getFullYear();
         let m = this.time.getMonth() + 1;
         let d = this.time.getDate();
-        return `${y}-${m}-${d}`
+        return `${y}-${m}-${d}`;
     }
 
     archive() {
         let m = this.time.getMonth() + 1;
         let d = this.time.getDate();
-        return `${m}-${d}`
+        return `${m}-${d}`;
     }
 }
+
+TimeToString.time = 0;

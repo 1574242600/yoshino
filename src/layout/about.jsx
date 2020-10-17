@@ -15,7 +15,7 @@ export default class About extends React.Component {
             id: 'about',
             loading: true,
             data: {},
-        }
+        };
     }
 
     async componentDidMount() {
@@ -30,12 +30,12 @@ export default class About extends React.Component {
         return (
             <Row>
                 <LoadingCard width='100%' loading={ this.state.loading }>
-                { !this.state.loading &&
+                    { !this.state.loading &&
                     <RowPageCard InfoCard={<InfoCard type='post' nav={this.state.data.nav} />}>
                         <PostCard data={this.state.data} isPage={true} />
                         <Comment postId={this.state.id} />
                     </RowPageCard>
-                }
+                    }
                 </LoadingCard>
             </Row>
         );

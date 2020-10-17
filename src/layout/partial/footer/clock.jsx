@@ -5,17 +5,17 @@ export default class Clock extends React.Component {
     id;
 
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
             Date: new Date()
-        }
+        };
     }
 
     componentDidMount() {
         this.id = setInterval(() => {
             this.setState({
                 Date: new Date()
-            })
+            });
         }, 1000);
     }
 
@@ -43,6 +43,6 @@ export default class Clock extends React.Component {
             <span>
                 {this.show()}
             </span>
-        )
+        );
     }
 }

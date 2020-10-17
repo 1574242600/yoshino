@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import * as Yoshino from 'yoshino';
 const { Col } = Yoshino.Grid;
 
@@ -14,6 +15,16 @@ export default class LinkCard extends React.Component {
                     <span style={{fontSize: '12px'}}>{ data.intr }</span>
                 </a>
             </Col>
-        )
+        );
     }
 }
+
+LinkCard.propTypes = {
+    data: PropTypes.shape({
+        url: PropTypes.string,
+        avatar: PropTypes.string,
+        title: PropTypes.string,
+        name: PropTypes.string,
+        intr: PropTypes.string
+    })
+};

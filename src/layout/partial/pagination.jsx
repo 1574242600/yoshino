@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import * as Yoshino from 'yoshino';
 const { Pagination } = Yoshino;
 const { Row } = Yoshino.Grid;
@@ -18,4 +19,10 @@ export default class Pagin extends React.Component {
             </Row>
         );
     }
-} 
+}
+
+Pagin.propTypes = {
+    page: PropTypes.number,
+    total: PropTypes.number,
+    history: PropTypes.object
+};

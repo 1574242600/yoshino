@@ -1,5 +1,6 @@
 import React from 'react';
 import LoadingComment from '../../widget/loading/loadingComment';
+import PropTypes from 'prop-types';
 
 async function error() {
     try {
@@ -19,17 +20,17 @@ async function load(postId, id) {
     if (window.DISQUS === undefined) {
         window.accessDisqus = true;
         (async () => {
-            var d = document, s = d.createElement('script');
+            const d = document, s = d.createElement('script');
             s.src = `//${id}.disqus.com/embed.js`;
             s.async = true;
             s.onerror = () => {
                 window.accessDisqus = false;
-                window.DISQUS = 0;
-                error()
-            }
+                window.DISQUS = null;
+                error();
+            };
             s.setAttribute('data-timestamp', + new Date());
             (d.head || d.body).appendChild(s);
-        })()
+        })();
     } else {
         
         if (!window.accessDisqus) {
@@ -39,19 +40,19 @@ async function load(postId, id) {
 
         window.DISQUS.reset({
             reload: true,
-            config: function() {
+            config: () => {
                 this.page.identifier = postId;
                 this.page.url = window.location.href;
             }
         });
         
-    };
+    }
 }
 
 export default class Disqus extends React.Component {
 
     componentDidMount() {
-        load(this.props.postId, this.props.id)
+        load(this.props.postId, this.props.id);
     }
 
     render() {
@@ -59,6 +60,11 @@ export default class Disqus extends React.Component {
             <div id='disqus_thread'>
                 {window.DISQUS === undefined && <LoadingComment />}
             </div>
-        )
+        );
     }
 }
+
+Disqus.propTypes = {
+    postId: PropTypes.number,
+    id: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
+};
