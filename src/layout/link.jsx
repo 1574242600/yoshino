@@ -1,11 +1,11 @@
 import React from 'react';
-import * as Yoshino from 'yoshino';
+import { Grid } from 'yoshino';
 import LoadingCard from './widget/loadingCard';
 import LinkCard from './partial/linkCard';
 import Title from './widget/title';
 import { Site, i18n as _ } from '../global';
 import CardShadow from './widget/cardShadow';
-const { Row } = Yoshino.Grid;
+const { Row } = Grid;
 
 export default class Links extends React.Component {
     constructor (props) {

@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as Yoshino from 'yoshino';
+import { Grid } from 'yoshino';
 import LoadingCard from './widget/loadingCard';
 import PostCard from './partial/postCard';
 import RowPageCard from './widget/rowPageCard';
 import Comment from './partial/comment';
 import { loadHljs, Site } from '../global';
 const InfoCard = React.lazy(() => import('./partial/infoCard'));
-const { Row } = Yoshino.Grid;
+const { Row } = Grid;
 
 export default class Post extends React.Component {
     constructor (props) {

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Loading } from 'yoshino';
-import { Transitions } from 'yoshino';
+import { Loading, Transitions } from 'yoshino';
 
 const { Scale } = Transitions;
 

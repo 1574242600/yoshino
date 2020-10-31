@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as Yoshino from 'yoshino';
+import { Grid } from 'yoshino';
 import Loading from './loading/loadingPage';
-const { Col } = Yoshino.Grid;
+const { Col } = Grid;
 
 export default class LoadingCard extends React.Component {
     render() {

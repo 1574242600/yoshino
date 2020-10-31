@@ -1,7 +1,6 @@
 import React from 'react';
-import * as Yoshino from 'yoshino';
+import { Icon, Modal, Input } from 'yoshino';
 import { i18n as _, Site } from '../../global';
-const { Icon, Modal, Input } = Yoshino;
 
 export default class Search extends React.Component {
     constructor (props) {

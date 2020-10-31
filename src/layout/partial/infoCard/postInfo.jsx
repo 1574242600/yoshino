@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as Yoshino from 'yoshino';
+import { Card } from 'yoshino';
 import { i18n as _, toc, loadJs } from '../../../global';
-const { Card } = Yoshino;
 
 export default class PostInfo extends React.Component {
     componentDidMount() {

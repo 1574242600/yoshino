@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as Yoshino from 'yoshino';
-const { Col, Row } = Yoshino.Grid;
+import { Grid } from 'yoshino';
+const { Col, Row } = Grid;
 
 export default class Content extends React.Component {
     render() {

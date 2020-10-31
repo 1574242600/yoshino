@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as Yoshino from 'yoshino';
+import { Grid } from 'yoshino';
 import Time from './time';
-const { Col, Row } = Yoshino.Grid;
+const { Col, Row } = Grid;
 
 export default class CardInfo extends React.Component {
     render() {

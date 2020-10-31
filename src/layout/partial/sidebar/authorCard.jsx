@@ -1,24 +1,20 @@
 import * as React from 'react';
-import * as Yoshino from 'yoshino';
+import { Grid, Avatar } from 'yoshino';
 import * as contacts from './contact/index';
 import { Site } from '../../../global';
-const { Avatar } = Yoshino;
-const { Row, Col } = Yoshino.Grid;
+const { Row, Col } = Grid;
 
 
 class AuthorAvatar extends React.Component {
     render() {
         return (
             <Col span={ 24 }>
-                <style>
-                    {
-                        // 我觉得我有病
-                    }
+                {<style>
                 .yoshino-avatar-default img { '{' }
                     width: 100px;
                     height: 100px;
                     { '}' }
-                </style>
+                </style>}
 
                 <Avatar src={ Site.config.avatar }
                     style={ {

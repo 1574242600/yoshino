@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as Yoshino from 'yoshino';
-const { Col } = Yoshino.Grid;
+import { Grid } from 'yoshino';
+const { Col } = Grid;
 
 export default class LinkCard extends React.Component {
     render() {

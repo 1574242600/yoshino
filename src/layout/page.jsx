@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as Yoshino from 'yoshino';
+import { Grid } from 'yoshino';
 import LoadingCard from './widget/loadingCard';
 import RowPageCard from './widget/rowPageCard';
 import PostCard from './partial/postMoreCard';
@@ -8,7 +8,7 @@ import Pagination from './partial/pagination';
 import { loadHljs } from '../global';
 import { Site } from '../global';
 const InfoCard = React.lazy(() => import('./partial/infoCard'));
-const { Row } = Yoshino.Grid;
+const { Row } = Grid;
 
 export default class Pages extends React.Component {
     constructor (props) {

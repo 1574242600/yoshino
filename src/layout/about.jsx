@@ -1,12 +1,12 @@
 import React from 'react';
-import * as Yoshino from 'yoshino';
+import { Grid } from 'yoshino';
 import LoadingCard from './widget/loadingCard';
 import InfoCard from './partial/infoCard';
 import PostCard from './partial/postCard';
 import RowPageCard from './widget/rowPageCard';
 import Comment from './partial/comment';
 import { Site } from '../global';
-const { Row } = Yoshino.Grid;
+const { Row } = Grid;
 
 export default class About extends React.Component {
     constructor (props) {

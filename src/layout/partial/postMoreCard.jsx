@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import * as Yoshino from 'yoshino';
+import { Grid, Button } from 'yoshino';
 import Title from '../widget/title';
 import Content from './postCard/content';
 import CardShadow from '../widget/cardShadow';
 import { MoreCardInfo } from './postCard/Info';
 import { i18n as _ } from '../../global';
-const { Row } = Yoshino.Grid;
-const { Button } = Yoshino;
+const { Row } = Grid;
 
 class More extends React.Component {
     render() {

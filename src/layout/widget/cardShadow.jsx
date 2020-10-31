@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as Yoshino from 'yoshino';
-const { Row } = Yoshino.Grid;
+import { Grid } from 'yoshino';
+const { Row } = Grid;
 
 export default class CardShadow extends React.Component {
     render() {

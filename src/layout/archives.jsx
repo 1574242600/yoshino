@@ -1,11 +1,11 @@
 import React from 'react';
-import * as Yoshino from 'yoshino';
+import { Grid } from 'yoshino';
 import LoadingCard from './widget/loadingCard';
 import ArchiveCard from './partial/archivesCard';
 import RowPageCard from './widget/rowPageCard';
 import { Site, TimeToString} from '../global';
 const InfoCard = React.lazy(() => import('./partial/infoCard'));
-const { Row } = Yoshino.Grid;
+const { Row } = Grid;
 
 export default class Archives extends React.Component {
     constructor (props) {

@@ -1,13 +1,13 @@
 import React, { Suspense } from 'react';
 import PropTypes from 'prop-types';
-import * as Yoshino from 'yoshino';
+import { Grid } from 'yoshino';
 import Sidebar from './partial/sidebar';
 import BackTop from './widget/backTop';
 import Footer from './partial/footer';
 import LoadingPage from './widget/loading/loadingPage';
 import * as Index from './index';
 import { Site, i18n as _ } from '../global';
-const { Col, Row } = Yoshino.Grid;
+const { Col, Row } = Grid;
 
 let sub = {
     Pages: {
