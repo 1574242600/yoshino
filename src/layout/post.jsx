@@ -5,7 +5,7 @@ import LoadingCard from './widget/loadingCard';
 import PostCard from './partial/postCard';
 import RowPageCard from './widget/rowPageCard';
 import Comment from './partial/comment';
-import { loadHljs, Site } from '../global';
+import { Site } from '../global';
 const InfoCard = React.lazy(() => import('./partial/infoCard'));
 const { Row } = Grid;
 
@@ -27,10 +27,6 @@ export default class Post extends React.Component {
         }
 
         return null;
-    }
-
-    componentDidUpdate() {
-        loadHljs();
     }
 
     getPostData(id) {
