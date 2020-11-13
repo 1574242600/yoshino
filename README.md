@@ -12,3 +12,4 @@ thx
 - [hexo-theme-sagiri](https://github.com/DIYgod/hexo-theme-sagiri)
 - [highlight](https://github.com/highlightjs/highlight.js)
 - [highlightjs-line-numbers](https://github.com/wcoder/highlightjs-line-numbers.js)
+- [ui-component-loader](https://github.com/gwuhaolin/ui-component-loader)
