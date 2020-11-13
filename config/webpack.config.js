@@ -339,7 +339,14 @@ module.exports = function(webpackEnv) {
                 
               },
               loader: require.resolve('eslint-loader'),
-            },
+            },{
+              loader: 'ui-component-loader',
+              options: {
+                'lib': 'yoshino',
+                'libDir': 'lib',
+                'style': 'style/index.js',
+              },
+            },            
           ],
           include: paths.appSrc,
         },

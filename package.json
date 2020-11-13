@@ -137,7 +137,8 @@
   },
   "devDependencies": {
     "eslint": "^6.8.0",
-    "pre-commit": "^1.2.2"
+    "pre-commit": "^1.2.2",
+    "ui-component-loader": "^1.4.3"
   },
   "pre-commit": [
     "lint"
