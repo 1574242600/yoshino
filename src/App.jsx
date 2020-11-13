@@ -3,6 +3,7 @@ import Route from './route';
 import { Site, Cache, i18nInit } from './global';
 import LoadingGlobal from './layout/widget/loading/loadingGlobal';
 import 'yoshino/lib/index.css';
+import 'yoshino/lib/common/reset.css';
 import './main.css'; //theme-next.org post-body
 
 export default class App extends React.Component {
