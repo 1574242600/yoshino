@@ -22,7 +22,7 @@ export default class PcSidebar extends React.Component {
                 sm={ 0 }
                 md={ 0 }
                 lg={ 4 }
-                xxl={ 2 }
+                xxl={ 4 }
                 style={ {
                     height: '100%',
                     position: 'fixed',

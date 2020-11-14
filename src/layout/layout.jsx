@@ -93,7 +93,7 @@ export default class Layout extends React.Component {
                     <Col
                         xs={ 24 }
                         lg={ { offset: 4, span: 20 } }
-                        xxl={ { offset: 2, span: 22 } }
+                        xxl={ { offset: 4, span: 16 } }
                     >
 
                         <div style={ { minHeight: 'calc(100vh - 79px)' } }>{ this.match() }</div>
