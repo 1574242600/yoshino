@@ -13,8 +13,8 @@ export default class Time extends React.Component {
     render() {
         return (
             <React.Fragment>
-                { this.props.Updated && <span>| </span>}
-                <span>{ _( this.props.Updated ? 'Updated' : 'Posted') }</span>
+                { this.props.isUpdated && <span>| </span>}
+                <span>{ _( this.props.isUpdated ? 'Updated' : 'Posted') }</span>
                 <time
                     dateTime={ this.state.TimeToString.ISO() }
                     itemProp="dateCreated datePublished"
@@ -28,6 +28,6 @@ export default class Time extends React.Component {
 }
 
 Time.propTypes = {
-    Updated: PropTypes.bool,
+    isUpdated: PropTypes.bool,
     time: PropTypes.number
 };
