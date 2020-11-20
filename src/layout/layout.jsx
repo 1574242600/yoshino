@@ -51,7 +51,7 @@ let sub = {
 
 export default class Layout extends React.Component {
 
-    constructor (props) {
+    constructor(props) {
         super(props);
         this.state = {
             path: this.props.location.search,
@@ -75,7 +75,7 @@ export default class Layout extends React.Component {
                 if (sub[mod].is(this.state.path)) {
                     sub[mod].init(this);
                     let Match = Index[mod];
-                    return <Match data={ sub[mod] } history={ this.props.history } />;
+                    return <Match data={sub[mod]} history={this.props.history} />;
                 }
             }
 
@@ -88,21 +88,22 @@ export default class Layout extends React.Component {
     render() {
         return (
             <Row>
-                <Sidebar location={ this.props.location } history={ this.props.history } />
-                <Suspense fallback={ <LoadingPage loading={ true } /> }>
+                <Sidebar location={this.props.location} history={this.props.history} />
+                <Suspense fallback={<LoadingPage loading={true} />}>
                     <Col
-                        xs={ 24 }
-                        lg={ { offset: 4, span: 20 } }
-                        xxl={ { offset: 4, span: 16 } }
+                        xs={24}
+                        lg={{ offset: 4, span: 20 }}
+                        xxl={{ offset: 4, span: 16 }}
                     >
-
-                        <div style={ { minHeight: 'calc(100vh - 79px)' } }>{ this.match() }</div>
-                        <Footer />
+                        <div style={{ minHeight: 'calc(100vh - 79px)' }}>{this.match()}</div>
                     </Col>
                 </Suspense>
+                <Col
+                    xs={24}
+                    lg={{ offset: 4, span: 20 }}
+                ><Footer /></Col>
                 <BackTop />
             </Row>
-
         );
     }
 }
