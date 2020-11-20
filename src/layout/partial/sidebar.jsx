@@ -1,11 +1,14 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-const { Suspense } = React;
-const PcSidebar = React.lazy(() => import('./sidebar/pc'));
-const MobileSidebar = React.lazy(() => import('./sidebar/mobile'));
+import { Grid, Divider } from 'yoshino';
+import Drawer from './sidebar/drawer';
+import AuthorCard from './sidebar/authorCard';
+import Memu from './sidebar/memu';
+const { Col, Row } = Grid;
+
 export default class Sidebar extends React.Component {
 
-    constructor (props) {
+    constructor(props) {
         super(props);
         this.state = {
             activeKey: '0'
@@ -13,22 +16,28 @@ export default class Sidebar extends React.Component {
     }
 
     render() {
+        const { open } = this.props;
         return (
-            <Suspense fallback={ <div></div> }>
-                {!window.isLg ?
-                    <MobileSidebar path={ this.props.location.search } history={ this.props.history } />
-                    :
-                    <PcSidebar path={ this.props.location.search } history={ this.props.history } />
-                }
-            </Suspense>
+            <Drawer open={open}>
+                <Row style={{
+                    height: '100%',
+                    backgroundColor: '#f5f5f5'
+                }}>
+                    <Col>
+                        <AuthorCard />
+                        <Divider />
+                        <Memu path={this.props.location.search} history={this.props.history} />
+                    </Col>
+                </Row>
+            </Drawer>
         );
     }
 
 }
 
 Sidebar.propTypes = {
-    location: PropTypes.shape({
-        search: PropTypes.string
-    }),
-    history: PropTypes.object
+    location: PropTypes.object,
+    history: PropTypes.object,
+    open: PropTypes.bool,
 };
+

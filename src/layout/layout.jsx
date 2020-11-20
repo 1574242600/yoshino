@@ -4,6 +4,7 @@ import { Grid } from 'yoshino';
 import Sidebar from './partial/sidebar';
 import BackTop from './widget/backTop';
 import Footer from './partial/footer';
+import MemuButton from './partial/memuButton';
 import LoadingPage from './widget/loading/loadingPage';
 import * as Index from './index';
 import { Site, i18n as _ } from '../global';
@@ -55,7 +56,9 @@ export default class Layout extends React.Component {
         super(props);
         this.state = {
             path: this.props.location.search,
+            sidebarStatus: window.isLg ? true : false
         };
+        this.onMemuButtonClick = this.onMemuButtonClick.bind(this);
     }
 
     static getDerivedStateFromProps(props, state) {
@@ -66,6 +69,13 @@ export default class Layout extends React.Component {
         }
 
         return null;
+    }
+
+
+    onMemuButtonClick() {
+        this.setState({
+            sidebarStatus: !this.state.sidebarStatus
+        });
     }
 
     match() {
@@ -86,22 +96,37 @@ export default class Layout extends React.Component {
     }
 
     render() {
+        const { sidebarStatus } = this.state;
+        const offset = sidebarStatus ? 4 : 0 ;
+        const span = sidebarStatus ? 20 : 24;
         return (
             <Row>
-                <Sidebar location={this.props.location} history={this.props.history} />
+                <MemuButton onClick={this.onMemuButtonClick} open={sidebarStatus}/>
+
+                <Sidebar location={this.props.location}
+                    history={this.props.history}
+                    open={sidebarStatus}
+                />
+
                 <Suspense fallback={<LoadingPage loading={true} />}>
                     <Col
                         xs={24}
-                        lg={{ offset: 4, span: 20 }}
-                        xxl={{ offset: 4, span: 16 }}
+                        lg={{ offset: offset, span: span }}
+                        xxl={{ offset: offset, span: span - 4 }}
+                        className={'width-transition'}
+                        style={{ paddingTop: Window.isLg ? undefined :'100px'}}
                     >
                         <div style={{ minHeight: 'calc(100vh - 79px)' }}>{this.match()}</div>
                     </Col>
                 </Suspense>
+
                 <Col
                     xs={24}
-                    lg={{ offset: 4, span: 20 }}
-                ><Footer /></Col>
+                    lg={{ offset: offset, span: span }}
+                    className={'width-transition'}
+                >
+                    <Footer />
+                </Col>
                 <BackTop />
             </Row>
         );

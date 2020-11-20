@@ -58,7 +58,7 @@ export default class Memu extends React.Component {
 
     render() {
 
-        let activeKey = this.getActiveKey(this.props.path);
+        const activeKey = this.getActiveKey(this.props.path);
 
         return (
             //defaultActiveKey='1' defaultOpenKeys={['sub1']}
