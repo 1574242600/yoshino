@@ -108,13 +108,13 @@ export default class Layout extends React.Component {
                     open={sidebarStatus}
                 />
 
-                <Suspense fallback={<LoadingPage loading={true} />}>
+                <Suspense fallback={<LoadingPage loading={true} />}>w
                     <Col
                         xs={24}
                         lg={{ offset: offset, span: span }}
                         xxl={{ offset: offset, span: span - 4 }}
                         className={'width-transition'}
-                        style={{ paddingTop: Window.isLg ? undefined :'100px'}}
+                        style={{ paddingTop: window.isLg ? undefined :'100px'}}
                     >
                         <div style={{ minHeight: 'calc(100vh - 79px)' }}>{this.match()}</div>
                     </Col>
