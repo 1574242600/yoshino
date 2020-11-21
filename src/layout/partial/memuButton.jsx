@@ -6,9 +6,9 @@ import { Icon } from 'yoshino';
 export default function MemuButton(props) {
     const { open } = props;
     const isLg = window.isLg;
-    const lg_mW = open ? '320px' : '50px';
+    const lg_mW = open ? undefined : '50px';
     const lg_TB = open ? 'auto' : 0 ;
-    const m_mW = open ? '320px' : '1280px';
+    const m_mW = open ? undefined : '1280px';
     
     return (
         <div className={'drawer width-transition'}

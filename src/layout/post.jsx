@@ -49,7 +49,7 @@ export default class Post extends React.Component {
     render() {
         return (
             <Row>
-                <LoadingCard width='100%' loading={ this.state.loading }>
+                <LoadingCard width={ window.isLg ? undefined : '100%'} loading={ this.state.loading }>
                     { !this.state.loading &&
                     <RowPageCard InfoCard={<InfoCard type='post' nav={this.state.data.nav} />}>
                         <PostCard data={this.state.data} isPage={false} />

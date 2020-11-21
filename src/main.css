@@ -205,8 +205,8 @@ footer a:hover {
     position: fixed;
     top: 24px;
     left: auto;
-    width: 20%;
-    margin: 0 0 0 24px
+    width: 22%;
+    margin: 0 0 0 10px
 }
 
 /* copy from mdui */
@@ -220,13 +220,19 @@ footer a:hover {
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     width: calc(100% - 56px);
-    max-width: 320px;
+    max-width: 16.59%;
     margin: 0;
     overflow-x: hidden;
     overflow-y: auto;
     white-space: nowrap;
     will-change: transform;
     -webkit-overflow-scrolling: touch
+}
+
+@media (max-width: 1600px) {
+    .drawer {
+        max-width: 260px;
+    }
 }
 
 .width-transition {

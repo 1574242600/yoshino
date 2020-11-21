@@ -26,7 +26,7 @@ export default class LoadingCard extends React.Component {
 }
 
 LoadingCard.defaultProps = {
-    width: '100%'
+    width: '92%'
 };
 
 LoadingCard.propTypes = {

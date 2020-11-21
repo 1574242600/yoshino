@@ -4,7 +4,7 @@ import TimeToString from './tools/timeToString.class';
 import toc from './tools/toc';
 import i18n, { init as i18nInit } from './tools/i18n';
 
-window.isLg = window.innerWidth > 992;
+window.isLg = window.innerWidth > 1200;
 
 const loadJs = async (name, async = true, callback, errorCallback) => {
     let js = document.createElement('script');

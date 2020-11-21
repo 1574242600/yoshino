@@ -9,7 +9,7 @@ export default class PostCard extends React.Component {
     render() {
         let data = this.props.data;
         return (
-            <CardShadow margin={ window.isLg ? '24px' : '0' }>
+            <CardShadow margin={ window.isLg ? '28px' : '0' }>
                 <Title 
                     style={{ 
                         marginTop: '8px',
@@ -20,7 +20,6 @@ export default class PostCard extends React.Component {
                     }}
                 >{data.info.title}</Title>
                 <div>
-                    {/*不加div 会报错*/ }
                     {!this.props.isPage && <CardInfo info={this.props.data.info} />}
                 </div>
                 <Content value={data.content} />

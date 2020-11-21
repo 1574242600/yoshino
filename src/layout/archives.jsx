@@ -47,7 +47,7 @@ export default class Archives extends React.Component {
     render() {
         return (
             <Row>
-                <LoadingCard width='95%' loading={ this.state.loading }>
+                <LoadingCard loading={ this.state.loading }>
                     { !this.state.loading && 
                         <RowPageCard InfoCard={<InfoCard type='page' total={this.state.data.length} />}>
                             <ArchiveCard data={ this.state.handledData } />

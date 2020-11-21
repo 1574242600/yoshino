@@ -26,7 +26,7 @@ class More extends React.Component {
 export default class PostCard extends React.Component {
     render() {
         return (
-            <CardShadow margin={ window.isLg ? '24px' : '0 0 16px' }>
+            <CardShadow margin={ window.isLg ? '28px' : '0 0 16px' }>
                 <Title
                     style={ {
                         marginTop: '8px',

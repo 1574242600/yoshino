@@ -56,7 +56,7 @@ export default class Layout extends React.Component {
         super(props);
         this.state = {
             path: this.props.location.search,
-            sidebarStatus: window.isLg ? true : false
+            sidebarStatus: window.innerWidth > 1280 ? true : false
         };
         this.onMemuButtonClick = this.onMemuButtonClick.bind(this);
     }
@@ -97,24 +97,24 @@ export default class Layout extends React.Component {
 
     render() {
         const { sidebarStatus } = this.state;
-        const offset = sidebarStatus ? 4 : 0 ;
+        const offset = sidebarStatus ? 4 : 0;
         const span = sidebarStatus ? 20 : 24;
         return (
             <Row>
-                <MemuButton onClick={this.onMemuButtonClick} open={sidebarStatus}/>
+                <MemuButton onClick={this.onMemuButtonClick} open={sidebarStatus} />
 
                 <Sidebar location={this.props.location}
                     history={this.props.history}
                     open={sidebarStatus}
                 />
 
-                <Suspense fallback={<LoadingPage loading={true} />}>w
+                <Suspense fallback={<LoadingPage loading={true} />}>
                     <Col
                         xs={24}
                         lg={{ offset: offset, span: span }}
                         xxl={{ offset: offset, span: span - 4 }}
-                        className={'width-transition'}
-                        style={{ paddingTop: window.isLg ? undefined :'100px'}}
+                        className={'width-transition '}
+                        style={{ paddingTop: window.isLg ? undefined : '100px' }}
                     >
                         <div style={{ minHeight: 'calc(100vh - 79px)' }}>{this.match()}</div>
                     </Col>
@@ -122,7 +122,7 @@ export default class Layout extends React.Component {
 
                 <Col
                     xs={24}
-                    lg={{ offset: offset, span: span }}
+                    lg={{ offset: offset === 1 ? 0 : offset, span: span }}
                     className={'width-transition'}
                 >
                     <Footer />
