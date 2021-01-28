@@ -1,6 +1,6 @@
 # yoshino
 學習react
-
+已重写至https://github.com/1574242600/gatsby-theme-yoshino
 ## 使用開源專案
 包括使用和ctrl+c ctrl+v等  
 thx  
