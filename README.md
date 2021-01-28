@@ -1,5 +1,6 @@
 # yoshino
-學習react
+學習react  
+
 已重写至https://github.com/1574242600/gatsby-theme-yoshino  
 
 ## 使用開源專案
